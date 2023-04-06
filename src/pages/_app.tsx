@@ -6,8 +6,13 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import theme from "../config/theme";
-import createEmotionCache from "../config/createEmotionCache";
+import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
+
+import theme from "@/config/theme";
+import createEmotionCache from "@/config/createEmotionCache";
+
+import "../styles/globals.css";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -23,8 +28,10 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Header />
         {/* //TODO: need to add a header and a footer */}
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
     </CacheProvider>
   );

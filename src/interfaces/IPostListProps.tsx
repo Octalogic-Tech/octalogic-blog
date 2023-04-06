@@ -1,3 +1,6 @@
+import { TinaMarkdownContent } from "tinacms/dist/rich-text";
+
+import { Post } from "./IPostProps";
 export default interface IPostListProps {
   data: Data;
   query: string;
@@ -16,20 +19,21 @@ export interface PostConnection {
 
 export interface Edge {
   cursor: string;
-  node: Node;
+  node: Post;
 }
 
 export interface Node {
   _sys: Sys;
   id: string;
   title: string;
+  summary: string;
   subtitle: string;
   categories: string;
   postDate: string;
-  tags: null;
+  tags: string[];
   slug: string;
   seo: SEO;
-  body: Body;
+  body: TinaMarkdownContent | TinaMarkdownContent[];
 }
 
 export interface Sys {

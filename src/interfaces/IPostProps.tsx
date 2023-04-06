@@ -1,7 +1,12 @@
+import { TinaMarkdownContent } from "tinacms/dist/rich-text";
+
 export default interface IPostProps {
   data: Data;
   query: string;
   variables: Variables;
+  dataList: Data[];
+  queryList: string;
+  variableList: Variables;
 }
 
 export interface Data {
@@ -12,13 +17,14 @@ export interface Post {
   _sys: Sys;
   id: string;
   title: string;
+  summary: string;
   subtitle: string;
   categories: string;
   postDate: string;
-  tags: null;
+  tags: string[];
   slug: string;
   seo: SEO;
-  body: Body;
+  body: TinaMarkdownContent;
 }
 
 export interface Sys {

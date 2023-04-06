@@ -24,18 +24,22 @@
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.124",
     "@mui/material": "^5.11.15",
     "@tinacms/cli": "^1.5.3",
     "@types/node": "18.15.11",
     "@types/react": "18.0.32",
     "@types/react-dom": "18.0.11",
+    "date-fns": "^2.29.3",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
     "next-seo": "^6.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tinacms": "^1.4.3"
+    "tinacms": "^1.4.3",
+    "voca": "^1.4.0"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "11.10.6",
