@@ -37,6 +37,7 @@ export default defineConfig({
             name: "coverImage",
             type: "image",
             label: "Cover Image",
+            required: false,
           },
           {
             type: "string",
@@ -50,13 +51,21 @@ export default defineConfig({
             label: "Summary",
             name: "summary",
             required: true,
+            ui: {
+              component: "textarea",
+              validate: (value: string) => {
+                if (value?.length > 400) {
+                  return "Summary cannot be more than 400 characters";
+                }
+              },
+            },
           },
-          {
+          /* {
             name: "subtitle",
             label: "Subtitle",
             type: "string",
             required: false,
-          },
+          }, */
           {
             label: "Categories",
             name: "categories",
@@ -87,12 +96,12 @@ export default defineConfig({
             list: true,
             required: false,
           },
-          {
+          /* {
             type: "string",
             label: "Slug",
             name: "slug",
             required: true,
-          },
+          }, */
           {
             label: "SEO",
             name: "seo",
@@ -106,9 +115,9 @@ export default defineConfig({
                 required: true,
                 ui: {
                   validate: (value: string) => {
-                    if (value?.length > 40) {
+                    if (value?.length > 60) {
                       // TODO: add validation for SEO title
-                      return "Title cannot be more than 40 characters long";
+                      return "Title cannot be more than 60 characters long";
                     }
                   },
                 },
@@ -121,9 +130,9 @@ export default defineConfig({
                 ui: {
                   component: "textarea",
                   validate: (value: string) => {
-                    if (value?.length > 40) {
+                    if (value?.length > 140) {
                       // TODO: add validation for SEO description
-                      return "Title cannot be more than 40 characters long";
+                      return "Title cannot be more than 140 characters long";
                     }
                   },
                 },

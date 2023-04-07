@@ -1,5 +1,4 @@
 import * as React from "react";
-import v from "voca";
 
 import Grid from "@mui/material/Grid";
 import { Typography, Box } from "@mui/material";
@@ -11,8 +10,6 @@ import client from "../../tina/__generated__/client";
 import Link from "@/components/link/link";
 
 import IPostListProps from "@/interfaces/IPostListProps";
-
-import { HERO_POST } from "@/constants/posts";
 
 import { Post } from "@/interfaces/IPostProps";
 
@@ -148,7 +145,7 @@ const Tags = ({ tags, size }: { tags: string[]; size: string }) => {
   return (
     <Grid container alignItems="center" sx={{ gap: "0.5rem" }}>
       {React.Children.toArray(
-        tags.map((tag: string) => <Tag size={size}>{tag}</Tag>)
+        tags.map((tag: string) => <Tag size={size}>{tag}</Tag>),
       )}
     </Grid>
   );
@@ -168,7 +165,7 @@ export const BlogPostCard = ({ post, size }: { post: Post; size: string }) => (
     <Grid item xs={12}>
       <Grid item>
         <TopicText size={size}>
-          {v.titleCase(post?.categories?.replaceAll("-", " ") || "")}
+          {post?.categories?.replaceAll("-", " ") || ""}
         </TopicText>
       </Grid>
       <Grid item sx={{ marginTop: "0.6rem" }}>
@@ -325,7 +322,7 @@ const InteractiveList = (props: IPostListProps) => {
         {React.Children.toArray(
           postList.map(({ node }: { node: Post }) => (
             <BlogPostCard post={node} size={BLOG_CARD_SIZE_OPTIONS.medium} />
-          ))
+          )),
         )}
       </Box>
     </Grid>
