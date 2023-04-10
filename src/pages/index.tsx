@@ -331,7 +331,11 @@ const InteractiveList = (props: IPostListProps) => {
 
 export const getStaticProps = async () => {
   try {
-    const { data, query, variables } = await client.queries.postConnection();
+    const { data, query, variables } = await client.queries.postConnection({
+      first: 10,
+    });
+
+    //TODO: add code for pagination
 
     return {
       props: {
