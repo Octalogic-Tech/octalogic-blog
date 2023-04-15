@@ -1,10 +1,9 @@
 import * as React from "react";
 
-import Grid from "@mui/material/Grid";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 const AboutCard = () => (
-  <Grid
+  <Box
     sx={{
       padding: "1.5rem",
       backgroundColor: "#3A9086",
@@ -48,7 +47,7 @@ const AboutCard = () => (
       leverages cutting-edge technology and industry best practices that meet
       client&apos;s specific needs and goals.
     </Typography>
-  </Grid>
+  </Box>
 );
 
 export default AboutCard;

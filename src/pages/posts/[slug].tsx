@@ -1,6 +1,6 @@
 import { GetStaticPropsContext } from "next";
 import * as React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { format, parseISO } from "date-fns";
 
 import { TinaMarkdown } from "tinacms/dist/rich-text";
@@ -28,7 +28,22 @@ export default function Home(props: IPostProps) {
   return (
     <>
       <Head title={seo?.title} description={seo?.description} />
-      <Grid className="global-spacer">
+      <Box
+        sx={{
+          paddingLeft: {
+            xs: "2rem",
+            sm: "6rem",
+            md: "10rem",
+            lg: "14rem",
+          },
+          paddingRight: {
+            xs: "2rem",
+            sm: "6rem",
+            md: "10rem",
+            lg: "14rem",
+          },
+        }}
+      >
         <Typography sx={{ paddingBlockStart: "4rem" }}>
           {`Updated ${format(
             parseISO(post?.postDate) || new Date(),
@@ -37,18 +52,16 @@ export default function Home(props: IPostProps) {
         </Typography>
 
         <Typography
-          component={"h1"}
+          component="h1"
+          variant="h3"
           sx={{
-            fontSize: "2rem",
-            fontWeight: 700,
-            lineHeight: "3rem",
-            paddingBlockStart: "3rem",
+            paddingY: "1.3rem",
           }}
         >
-          {post?.title || ""}
+          {post?.title}
         </Typography>
         <TinaMarkdown content={post?.body || {}} />
-      </Grid>
+      </Box>
     </>
   );
 }

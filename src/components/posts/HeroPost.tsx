@@ -1,7 +1,6 @@
 import * as React from "react";
 
-import Grid from "@mui/material/Grid";
-import { Typography } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 
 import Link from "@/components/link/link";
 
@@ -49,6 +48,7 @@ const BlogPost = ({ post }: { post: Post }) => (
     </Grid>
 
     <Grid
+      item
       container
       sx={{
         flexDirection: { xs: "row-reverse", sm: "row" },

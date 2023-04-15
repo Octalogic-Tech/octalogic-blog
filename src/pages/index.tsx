@@ -30,7 +30,7 @@ const InteractiveList = (props: IPostListProps) => {
     <Grid className="global-spacer">
       <Box
         sx={{
-          paddingBlockStart: "6rem",
+          paddingBlockStart: "4rem",
           display: "grid",
           gridTemplateColumns: { xs: "minmax(0, 1fr)", lg: "2fr 1fr" },
           gridRowGap: { xs: "5rem", lg: "7rem" },
