@@ -31,8 +31,10 @@ const InteractiveList = (props: IPostListProps) => {
       <Box
         sx={{
           paddingBlockStart: "4rem",
-          display: "grid",
-          gridTemplateColumns: { xs: "minmax(0, 1fr)", lg: "2fr 1fr" },
+          // display: "grid",
+          // gridTemplateColumns: { xs: "minmax(0, 1fr)", lg: "2fr 1fr" },
+          display: "flex",
+          flexDirection: { xs: "column-reverse", lg: "row" },
           gridRowGap: { xs: "5rem", lg: "7rem" },
           gridColumnGap: { xs: "0", lg: "7rem" },
         }}
@@ -54,7 +56,7 @@ const InteractiveList = (props: IPostListProps) => {
         }}
       >
         {React.Children.toArray(
-          postList.map(({ node }: { node: Post }) => <BlogPost post={node} />),
+          postList.map(({ node }: { node: Post }) => <BlogPost post={node} />)
         )}
       </Box>
     </Grid>

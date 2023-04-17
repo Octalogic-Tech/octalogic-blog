@@ -7,7 +7,11 @@ import Link from "@/components/link/link";
 import { Post } from "@/interfaces/IPostProps";
 
 const BlogPost = ({ post }: { post: Post }) => (
-  <Grid container justifyContent="space-between">
+  <Grid
+    container
+    justifyContent="space-between"
+    sx={{ flex: 1, flexGrow: { xs: 1, sm: 2 } }}
+  >
     <Grid item xs={12}>
       <Grid item>
         <Typography
@@ -74,7 +78,7 @@ const BlogPost = ({ post }: { post: Post }) => (
               >
                 {tag}
               </Typography>
-            )),
+            ))
           )}
         </Grid>
       </Grid>

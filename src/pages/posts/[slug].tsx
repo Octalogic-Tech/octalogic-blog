@@ -26,7 +26,7 @@ export default function Home(props: IPostProps) {
   });
 
   const post: Post = data?.post;
-  console.log("🚀 ~ file: [slug].tsx:29 ~ Home ~ post:", post);
+  // console.log("🚀 ~ file: [slug].tsx:29 ~ Home ~ post:", post);
 
   const seo = post?.seo;
 
