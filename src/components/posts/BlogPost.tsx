@@ -23,7 +23,7 @@ const BlogPostCard = ({ post }: { post: Post }) => (
       </Grid>
       <Grid item sx={{ marginTop: "0.6rem" }}>
         <Typography variant="h4" component="h2">
-          {post.title}
+          {post?.title}
         </Typography>
       </Grid>
       <Grid item sx={{ marginTop: "1rem" }}>
@@ -36,7 +36,7 @@ const BlogPostCard = ({ post }: { post: Post }) => (
             WebkitLineClamp: 3,
           }}
         >
-          {post.summary}
+          {post?.summary}
         </Typography>
       </Grid>
     </Grid>
@@ -54,7 +54,7 @@ const BlogPostCard = ({ post }: { post: Post }) => (
       <Grid item xs={12} sm={9}>
         <Grid container alignItems="center" sx={{ gap: "0.5rem" }}>
           {React.Children.toArray(
-            post.tags.map((tag: string) => (
+            post?.tags.map((tag: string) => (
               <Typography
                 variant="subtitle1"
                 component="p"

@@ -6,7 +6,7 @@ import Link from "@/components/link/link";
 
 import { Post } from "@/interfaces/IPostProps";
 
-const BlogPost = ({ post }: { post: Post }) => (
+const BlogPost = ({ post }: { post?: Post }) => (
   <Grid
     container
     justifyContent="space-between"
@@ -32,7 +32,7 @@ const BlogPost = ({ post }: { post: Post }) => (
             fontSize: "4rem",
           }}
         >
-          {post.title}
+          {post?.title}
         </Typography>
       </Grid>
       <Grid item sx={{ marginTop: "2rem" }}>
@@ -46,7 +46,7 @@ const BlogPost = ({ post }: { post: Post }) => (
             WebkitLineClamp: 6,
           }}
         >
-          {post.summary}
+          {post?.summary}
         </Typography>
       </Grid>
     </Grid>
@@ -65,7 +65,7 @@ const BlogPost = ({ post }: { post: Post }) => (
       <Grid item xs={12} sm={9}>
         <Grid container alignItems="center" sx={{ gap: "0.5rem" }}>
           {React.Children.toArray(
-            post.tags.map((tag: string) => (
+            post?.tags.map((tag: string) => (
               <Typography
                 variant="h6"
                 component="p"

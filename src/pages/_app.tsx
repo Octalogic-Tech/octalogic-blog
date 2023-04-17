@@ -8,6 +8,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
+import MobileSpeedDial from "@/components/speed-dial/speed-dial";
 
 import theme from "@/config/theme";
 import createEmotionCache from "@/config/createEmotionCache";
@@ -32,6 +33,7 @@ export default function MyApp(props: MyAppProps) {
         {/* //TODO: need to add a header and a footer */}
         <Component {...pageProps} />
         <Footer />
+        <MobileSpeedDial />
       </ThemeProvider>
     </CacheProvider>
   );

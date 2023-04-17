@@ -1,7 +1,6 @@
 import * as React from "react";
 
-import Grid from "@mui/material/Grid";
-import { Box } from "@mui/material";
+import { Grid, Box, Button } from "@mui/material";
 
 import { useTina } from "tinacms/dist/react";
 import client from "../../tina/__generated__/client";
@@ -10,36 +9,69 @@ import HeroPost from "@/components/posts/HeroPost";
 import BlogPost from "@/components/posts/BlogPost";
 import AboutCard from "@/components/cards/AboutCard";
 
-import IPostListProps from "@/interfaces/IPostListProps";
+import IPostListProps, {
+  Edge,
+  Data,
+  PageInfo,
+} from "@/interfaces/IPostListProps";
 
 import { Post } from "@/interfaces/IPostProps";
 
 const InteractiveList = (props: IPostListProps) => {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
-  const { data } = useTina({
-    query: props.query,
-    variables: props.variables,
-    data: props.data,
-  });
+  const [pageInfo, setPageInfo] = React.useState<undefined | PageInfo>(
+    undefined
+  );
+  const [heroPost, setHeroPost] = React.useState<Edge | undefined>(undefined);
+  const [posts, setPosts] = React.useState<Edge[]>([]);
+  const [query, setQuery] = React.useState<IPostListProps | {}>({});
 
-  const postList = data?.postConnection?.edges || [];
+  React.useEffect(() => {
+    setQuery({
+      query: props.query,
+      variables: props.variables,
+      data: props.data,
+    });
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const [firstPost] = postList;
+  const queryPosts = async () => {
+    const { data, query, variables } = await client.queries.postConnection({
+      first: 4,
+      after: pageInfo?.endCursor,
+    });
+    setQuery({ data, query, variables });
+  };
+
+  const { data: fetchedPosts } = useTina(query);
+
+  const paginatePosts = ({ latestPosts }: { latestPosts: Data }) => {
+    const postList = latestPosts?.postConnection?.edges || [];
+    setPageInfo(latestPosts?.postConnection?.pageInfo || {});
+
+    if (!heroPost && postList.length > 0) {
+      const [firstPost] = postList;
+      setHeroPost(firstPost);
+    }
+
+    setPosts([...posts, ...postList]);
+  };
+
+  React.useEffect(() => {
+    paginatePosts({ latestPosts: fetchedPosts });
+  }, [fetchedPosts]);
 
   return (
     <Grid className="global-spacer">
       <Box
         sx={{
           paddingBlockStart: "4rem",
-          // display: "grid",
-          // gridTemplateColumns: { xs: "minmax(0, 1fr)", lg: "2fr 1fr" },
           display: "flex",
           flexDirection: { xs: "column-reverse", lg: "row" },
           gridRowGap: { xs: "5rem", lg: "7rem" },
           gridColumnGap: { xs: "0", lg: "7rem" },
         }}
       >
-        <HeroPost post={firstPost?.node} />
+        <HeroPost post={heroPost?.node} />
         <AboutCard />
       </Box>
 
@@ -56,7 +88,14 @@ const InteractiveList = (props: IPostListProps) => {
         }}
       >
         {React.Children.toArray(
-          postList.map(({ node }: { node: Post }) => <BlogPost post={node} />)
+          posts.map(({ node }: { node: Post }) => <BlogPost post={node} />)
+        )}
+      </Box>
+      <Box
+        sx={{ display: "grid", placeItems: "center", paddingBlockEnd: "2rem" }}
+      >
+        {!!pageInfo?.hasNextPage && (
+          <Button onClick={queryPosts}>Load More</Button>
         )}
       </Box>
     </Grid>
@@ -66,10 +105,8 @@ const InteractiveList = (props: IPostListProps) => {
 export const getStaticProps = async () => {
   try {
     const { data, query, variables } = await client.queries.postConnection({
-      first: 10,
+      first: 4,
     });
-
-    //TODO: add code for pagination
 
     return {
       props: {
