@@ -5,7 +5,7 @@ summary: >-
   AI and 5G to blockchain and quantum computing, explore how these trends are
   transforming our world.
 categories: web-development
-postDate: '2023-03-26T18:30:00.000Z'
+postDate: 2023-03-26T18:30:00.000Z
 tags:
   - trends
 seo:
@@ -13,6 +13,7 @@ seo:
   description: >-
     Discover the tech trends transforming our world. From AI and 5G to
     blockchain and quantum computing, explore the future of tech in 2023.
+isHeroPost: false
 ---
 
 The tech industry is constantly evolving, and it can be challenging to keep up with the latest trends and updates. In this blog post, we'll discuss some of the most exciting new technology trends that are emerging and how they are transforming the industry.

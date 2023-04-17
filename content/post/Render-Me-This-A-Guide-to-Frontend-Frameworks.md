@@ -4,7 +4,7 @@ summary: >-
   Learn about frontend rendering mechanisms in modern frameworks. Discover use
   cases, pros and cons, and supported frameworks in this comprehensive guide.
 categories: web-development
-postDate: '2023-04-24T18:30:00.000Z'
+postDate: 2023-04-24T18:30:00.000Z
 tags:
   - frontend
 seo:
@@ -12,6 +12,7 @@ seo:
   description: >-
     Explore rendering mechanisms in frontend frameworks: use cases, pros and
     cons, and supported frameworks.
+isHeroPost: false
 ---
 
 As frontend web development continues to evolve, developers must choose the best rendering mechanism for their projects. In this article, we'll explore four common rendering mechanisms used in modern frontend frameworks: server-side rendering (SSR), client-side rendering (CSR), static site generation (SSG), and incremental static regeneration (ISR). We'll also cover the use cases for each, their advantages and disadvantages, and which popular frameworks support them.
@@ -19,7 +20,6 @@ As frontend web development continues to evolve, developers must choose the best
 ## Server-side rendering (SSR)
 
 SSR renders web pages on the server and sends them to the client. It allows for dynamic data to be loaded on the server, reducing the page load time and improving search engine optimization (SEO).
-
 
 Pros:
 
@@ -39,7 +39,7 @@ Frameworks that support SSR: Next.js, Nuxt.js, Angular Universal
 
 ***
 
-## Client-side rendering (CSR) 
+## Client-side rendering (CSR)
 
 CSR renders web pages in the browser using JavaScript. It allows for more dynamic and interactive web applications, but can result in slower initial page load times.
 
@@ -82,7 +82,7 @@ Frameworks that support SSG: Gatsby, Next.js, Hugo
 
 ***
 
-## Hybrid rendering 
+## Hybrid rendering
 
 Hybrid rendering combines the benefits of SSR and CSR, allowing for fast initial load times and dynamic content updates.
 

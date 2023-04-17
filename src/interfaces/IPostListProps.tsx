@@ -2,6 +2,11 @@ import { TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 import { Post } from "./IPostProps";
 export default interface IPostListProps {
+  posts: PostListProps;
+  heroPost: PostListProps;
+}
+
+interface PostListProps {
   data: Data;
   query: string;
   variables: Variables;

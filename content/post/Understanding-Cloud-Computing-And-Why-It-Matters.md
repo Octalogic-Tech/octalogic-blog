@@ -4,7 +4,7 @@ summary: >-
   Learn the basics of cloud computing & its benefits for businesses. Understand
   the differences between traditional & cloud computing.
 categories: web-development
-postDate: '2023-03-26T18:30:00.000Z'
+postDate: 2023-03-26T18:30:00.000Z
 tags:
   - cloud
 seo:
@@ -12,6 +12,7 @@ seo:
   description: >-
     Learn the basics of cloud computing & its benefits for businesses.
     Understand the differences between traditional & cloud computing.
+isHeroPost: false
 ---
 
 Cloud computing has developed as a ground-breaking technology in recent years that is revolutionising how businesses run. It has given businesses unmatched flexibility and scalability, enabling them to instantly access potent computing capabilities from any location in the world.

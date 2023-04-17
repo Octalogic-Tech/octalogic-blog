@@ -21,44 +21,46 @@ const InteractiveList = (props: IPostListProps) => {
   const [pageInfo, setPageInfo] = React.useState<undefined | PageInfo>(
     undefined
   );
-  const [heroPost, setHeroPost] = React.useState<Edge | undefined>(undefined);
   const [posts, setPosts] = React.useState<Edge[]>([]);
   const [query, setQuery] = React.useState<IPostListProps | {}>({});
 
   React.useEffect(() => {
     setQuery({
-      query: props.query,
-      variables: props.variables,
-      data: props.data,
+      data: props.posts.data,
+      query: props.posts.query,
+      variables: props.posts.variables,
     });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const queryPosts = async () => {
     const { data, query, variables } = await client.queries.postConnection({
-      first: 4,
-      after: pageInfo?.endCursor,
+      ...props.posts.variables,
+      before: pageInfo?.endCursor,
     });
     setQuery({ data, query, variables });
   };
 
   const { data: fetchedPosts } = useTina(query);
 
-  const paginatePosts = ({ latestPosts }: { latestPosts: Data }) => {
+  const paginatePosts = ({ latestPosts }: { latestPosts: any }) => {
     const postList = latestPosts?.postConnection?.edges || [];
     setPageInfo(latestPosts?.postConnection?.pageInfo || {});
-
-    if (!heroPost && postList.length > 0) {
-      const [firstPost] = postList;
-      setHeroPost(firstPost);
-    }
-
     setPosts([...posts, ...postList]);
   };
 
   React.useEffect(() => {
     paginatePosts({ latestPosts: fetchedPosts });
   }, [fetchedPosts]);
+
+  const { data: fetchedHeroPost } = useTina({
+    data: props.heroPost.data,
+    query: props.heroPost.query,
+    variables: props.heroPost.variables,
+  });
+
+  const [heroPost] = fetchedHeroPost?.postConnection?.edges || [];
+
 
   return (
     <Grid className="global-spacer">
@@ -94,7 +96,7 @@ const InteractiveList = (props: IPostListProps) => {
       <Box
         sx={{ display: "grid", placeItems: "center", paddingBlockEnd: "2rem" }}
       >
-        {!!pageInfo?.hasNextPage && (
+        {!!pageInfo?.hasPreviousPage && (
           <Button onClick={queryPosts}>Load More</Button>
         )}
       </Box>
@@ -105,14 +107,29 @@ const InteractiveList = (props: IPostListProps) => {
 export const getStaticProps = async () => {
   try {
     const { data, query, variables } = await client.queries.postConnection({
-      first: 4,
+      filter: { isHeroPost: { eq: false } },
+      sort: "postDate",
+      last: 4,
+    });
+
+    const {
+      data: heroData,
+      query: heroQuery,
+      variables: heroVariables,
+    } = await client.queries.postConnection({
+      filter: { isHeroPost: { eq: true } },
+      sort: "postDate",
+      last: 1,
     });
 
     return {
       props: {
-        data,
-        query,
-        variables,
+        posts: { data, query, variables },
+        heroPost: {
+          data: heroData,
+          query: heroQuery,
+          variables: heroVariables,
+        },
       },
     };
   } catch (e) {

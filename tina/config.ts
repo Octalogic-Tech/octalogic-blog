@@ -79,6 +79,14 @@ export default defineConfig({
               },
             },
           },
+          {
+            label: "Is Hero Post",
+            name: "isHeroPost",
+            type: "boolean",
+            ui: {
+              component: "toggle",
+            },
+          },
           /* {
             name: "subtitle",
             label: "Subtitle",
