@@ -30,7 +30,6 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-        {/* //TODO: need to add a header and a footer */}
         <Component {...pageProps} />
         <Footer />
         <MobileSpeedDial />
