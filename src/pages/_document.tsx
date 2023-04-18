@@ -4,6 +4,8 @@ import createEmotionServer from "@emotion/server/create-instance";
 
 import theme, { comfortaa } from "../config/theme";
 import createEmotionCache from "../config/createEmotionCache";
+import { AppType } from "next/dist/shared/lib/utils";
+import { EmotionCache } from "@emotion/cache";
 
 export default class MyDocument extends Document {
   render() {
@@ -61,7 +63,9 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App: any) =>
+      enhanceApp: (
+        App: AppType | React.ComponentType<{ emotionCache: EmotionCache }>
+      ) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />;
         },

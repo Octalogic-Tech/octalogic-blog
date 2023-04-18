@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 
 interface ParagraphProps {
   sx?: SxProps;
-  children: any;
+  children: JSX.Element;
   className?: string;
 }
 

@@ -11,7 +11,7 @@ interface LinkWrapperProps {
   children: ReactElement;
 }
 
-const MyButton = styled(LoadingButton)(({ theme }: { theme: any }) => ({
+const MyButton = styled(LoadingButton)(({ theme }) => ({
   fontSize: "1rem",
   borderRadius: "1.562rem",
   color: theme.palette.info.contrastText,

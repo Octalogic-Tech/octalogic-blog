@@ -6,7 +6,7 @@ export default interface IPostListProps {
   heroPost: PostListProps;
 }
 
-interface PostListProps {
+export interface PostListProps {
   data: Data;
   query: string;
   variables: Variables;

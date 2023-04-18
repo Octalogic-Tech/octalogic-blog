@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 interface HeadingProps {
   sx?: SxProps;
   size: string;
-  children: any;
+  children: JSX.Element;
   className?: string;
 }
 

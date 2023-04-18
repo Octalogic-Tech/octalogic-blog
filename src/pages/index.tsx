@@ -22,7 +22,11 @@ const InteractiveList = (props: IPostListProps) => {
     undefined
   );
   const [posts, setPosts] = React.useState<Edge[]>([]);
-  const [query, setQuery] = React.useState<IPostListProps | {}>({});
+  const [query, setQuery] = React.useState<{
+    query: string;
+    variables: object;
+    data: object;
+  }>({ query: "", variables: {}, data: {} });
 
   React.useEffect(() => {
     setQuery({
@@ -41,16 +45,19 @@ const InteractiveList = (props: IPostListProps) => {
     setQuery({ data, query, variables });
   };
 
-  const { data: fetchedPosts } = useTina(query);
+  const { data: fetchedPosts }: { data: object } = useTina(query);
 
-  const paginatePosts = ({ latestPosts }: { latestPosts: any }) => {
+  const paginatePosts = ({ latestPosts }: { latestPosts: Data }) => {
     const postList = latestPosts?.postConnection?.edges || [];
     setPageInfo(latestPosts?.postConnection?.pageInfo || {});
     setPosts([...posts, ...postList]);
   };
 
   React.useEffect(() => {
-    paginatePosts({ latestPosts: fetchedPosts });
+    if (Object.keys(fetchedPosts).length > 0) {
+      paginatePosts({ latestPosts: fetchedPosts as Data });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchedPosts]);
 
   const { data: fetchedHeroPost } = useTina({
@@ -60,7 +67,6 @@ const InteractiveList = (props: IPostListProps) => {
   });
 
   const [heroPost] = fetchedHeroPost?.postConnection?.edges || [];
-
 
   return (
     <Grid className="global-spacer">
