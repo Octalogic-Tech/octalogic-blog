@@ -13,6 +13,7 @@ import { Socials } from "@/constants/socials";
 import { ISocial } from "@/interfaces";
 
 const FooterLink = ({ name, href }: { name: string; href: string }) => {
+  console.log("hello");
   return (
     <Box className={Styles.container}>
       <Link
