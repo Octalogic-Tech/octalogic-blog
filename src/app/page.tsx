@@ -2,8 +2,6 @@ import * as React from "react";
 
 import client from "../../tina/__generated__/client";
 
-
-
 import IPostListProps from "@/interfaces/IPostListProps";
 
 import BlogList from "./blog-list-page";
@@ -44,9 +42,9 @@ export const getBlogs = async () => {
 };
 
 const BlogListPage = async () => {
-  const result = await getBlogs();
+  const { props } = await getBlogs();
 
-  return <BlogList {...(result as unknown as IPostListProps)} />;
+  return <BlogList {...(props as unknown as IPostListProps)} />;
 };
 
 export default BlogListPage;

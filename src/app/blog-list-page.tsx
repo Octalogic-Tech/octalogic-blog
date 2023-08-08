@@ -31,9 +31,9 @@ const BlogList = (props: IPostListProps) => {
 
   React.useEffect(() => {
     setQuery({
-      data: props.posts.data,
-      query: props.posts.query,
-      variables: props.posts.variables,
+      data: props?.posts?.data,
+      query: props?.posts?.query,
+      variables: props?.posts?.variables,
     });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -62,9 +62,9 @@ const BlogList = (props: IPostListProps) => {
   }, [fetchedPosts]);
 
   const { data: fetchedHeroPost } = useTina({
-    data: props.heroPost.data,
-    query: props.heroPost.query,
-    variables: props.heroPost.variables,
+    data: props?.heroPost?.data,
+    query: props?.heroPost?.query,
+    variables: props?.heroPost?.variables,
   });
 
   const [heroPost] = fetchedHeroPost?.postConnection?.edges || [];

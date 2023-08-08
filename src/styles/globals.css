@@ -1,6 +1,49 @@
 @tailwind base;
+@layer base {
+  [data-nextjs-scroll-focus-boundary] {
+    display: contents;
+  }
+  h1 {
+    @apply font-bold;
+  }
+  h2 {
+    @apply font-bold;
+  }
+  h3 {
+    @apply font-bold;
+  }
+  h4 {
+    @apply font-bold;
+  }
+  h5 {
+    @apply font-bold;
+  }
+  h6 {
+    @apply font-bold;
+  }
+}
 @tailwind components;
 @tailwind utilities;
+
+body {
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+body::-webkit-scrollbar {
+  width: 0.312rem;
+  border-radius: 1rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000000b3;
+  border-radius: 1rem;
+}
+
+.pill-btn:hover {
+  background-color: #ff62a7;
+  box-shadow: 2px 4px 10px rgb(255 98 167 / 40%);
+}
 
 /* :root {
   --max-width: 1100px;

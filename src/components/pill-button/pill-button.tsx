@@ -1,7 +1,5 @@
 import { ReactElement } from "react";
-
-import { styled } from '@mui/material/styles';
-import LoadingButton, { LoadingButtonProps } from "@mui/lab/LoadingButton";
+import clsx from "clsx";
 
 import Link from "@/components/link/link";
 
@@ -11,44 +9,42 @@ interface LinkWrapperProps {
   children: ReactElement;
 }
 
-const MyButton = styled(LoadingButton)(({ theme }) => ({
-  fontSize: "1rem",
-  borderRadius: "1.562rem",
-  color: theme.palette.info.contrastText,
-  textTransform: "unset",
-  padding: "0.7rem 2rem",
-  backgroundColor: theme.palette.secondary.main,
-  lineHeight: "1.5",
-  ":hover": {
-    backgroundColor: theme.palette.secondary.main,
-    boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
-  },
-  "&.MuiLoadingButton-loading": {
-    backgroundColor: theme.palette.secondary.main,
-  },
-  ".MuiLoadingButton-loadingIndicator": {
-    color: theme.palette.info.contrastText,
-  },
-}));
+const ConditionalLinkWrapper = ({
+  condition,
+  wrapper,
+  children,
+}: LinkWrapperProps) => (condition ? wrapper(children) : children);
 
-const ConditionalLinkWrapper = ({ condition, wrapper, children }: LinkWrapperProps) =>
-  condition ? wrapper(children) : children;
-
-export function PillButton(props: LoadingButtonProps) {
-  const { title, href, ...otherProps } = props;
+export function PillButton(props: {
+  title: string;
+  href?: string;
+  className?: string;
+}) {
+  const { title, href, className = "", ...otherProps } = props;
 
   return (
     <ConditionalLinkWrapper
       condition={href}
       wrapper={(children: ReactElement) => (
-        <Link href={href as string} passHref sx={{ textDecoration: "none" }}>
+        <Link href={href as string} passHref>
           {children}
         </Link>
       )}
     >
-      <MyButton variant="contained" {...otherProps}>
+      <button
+        {...otherProps}
+        className={clsx(
+          "text-base rounded-[1.562rem] text-info-contrastText bg-secondary-main py-3 px-8 pill-btn",
+          className
+        )}
+        // style={{
+        //   ":hover": {
+        //     boxShadow: "2px 4px 10px rgb(255 98 167 / 40%)",
+        //   },
+        // }}
+      >
         {title}
-      </MyButton>
+      </button>
     </ConditionalLinkWrapper>
   );
 }

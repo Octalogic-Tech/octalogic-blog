@@ -1,15 +1,24 @@
 import { Metadata } from "next";
-import theme from "@/config/theme";
+import { Comfortaa } from "next/font/google";
+
+import Header from "@/components/header/header";
 
 import ThemeRegistry from "./ThemeRegistry";
 
 // These styles apply to every route in the application
-import "./globals.css";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Home",
   description: "Welcome to Next.js",
 };
+
+export const comfortaa = Comfortaa({
+  weight: [ "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["cursive", "sans-serif"],
+});
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -19,18 +28,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <head>
-        <meta name="theme-color" content={theme.palette.primary.main} />
+        {/* <meta name="theme-color" content={theme.palette.primary.main} />
         <meta
           name="msapplication-TileColor"
           content={theme.palette.primary.main}
         />
-        <meta name="emotion-insertion-point" content="" />
+        <meta name="emotion-insertion-point" content="" /> */}
       </head>
-      <body>
-        {" "}
-        <ThemeRegistry options={{ key: "mui" }}>{children}</ThemeRegistry>
+      <body className={comfortaa.className}>
+        <Header/>
+        {/* <ThemeRegistry options={{ key: "mui" }}> */}
+          {children}
+          {/* </ThemeRegistry> */}
       </body>
     </html>
   );
