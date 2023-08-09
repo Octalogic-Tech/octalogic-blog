@@ -3,53 +3,29 @@ import * as React from "react";
 import { Typography, Box, Grid } from "@mui/material";
 
 const AboutCard = () => (
-  <Grid container sx={{ flex: 1, flexGrow: 1 }}>
-    <Box
-      sx={{
-        padding: "1.5rem",
-        backgroundColor: "#3A9086",
-        borderRadius: "0.6rem",
-      }}
-    >
-      <Typography
-        variant="h6"
-        sx={{
-          color: "#F3F4F6",
-        }}
-      >
-        About
-      </Typography>
+  <div className="flex flex-1 grow">
+    <Box className="p-6 bg-[#3A9086] rounded-lg">
+      <h6 className="text-[#F3F4F6]">About</h6>
 
-      <Typography
-        variant="body1"
-        sx={{
-          color: "#F3F4F6",
-          marginTop: "1rem",
-        }}
-      >
+      <p className="mt-4 text-[#F3F4F6]">
         Octalogic Tech is a SaaS company based in Goa, India, that provides
         custom software development, mobile app development, and IT consulting
         services to clients worldwide. Our turnkey solutions are designed to
         simplify the process of software development and deployment, providing
         clients with a seamless end-to-end experience.
-      </Typography>
+      </p>
       <br />
 
-      <Typography
-        variant="body1"
-        sx={{
-          color: "#F3F4F6",
-        }}
-      >
+      <p className="text-[#F3F4F6]">
         Being sector agnostic, we have provided tailor-made solutions to clients
         in FinTech, MedTech, EdTech, FoodTech, and e-commerce verticals.With a
         proven track record of delivering quality and innovative solutions to
         clients in various industries, our team of experienced professionals
         leverages cutting-edge technology and industry best practices that meet
         client&apos;s specific needs and goals.
-      </Typography>
+      </p>
     </Box>
-  </Grid>
+  </div>
 );
 
 export default AboutCard;

@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ import PermPhoneMsgIcon from "@mui/icons-material/PermPhoneMsg";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const actions = [
   { icon: <PermPhoneMsgIcon />, name: "Contact", linkUrl: "contact" },

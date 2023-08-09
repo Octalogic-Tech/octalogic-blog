@@ -4,26 +4,30 @@
     display: contents;
   }
   h1 {
-    @apply font-bold;
+    @apply font-bold text-[5.625rem];
   }
   h2 {
-    @apply font-bold;
+    @apply font-bold text-[4.25rem];
   }
   h3 {
-    @apply font-bold;
+    @apply font-bold text-[3.125rem];
   }
   h4 {
-    @apply font-bold;
+    @apply font-bold text-[2.375rem];
   }
   h5 {
-    @apply font-bold;
+    @apply font-bold text-[1.75rem];
   }
   h6 {
-    @apply font-bold;
+    @apply font-bold text-[1.375rem];
   }
 }
 @tailwind components;
 @tailwind utilities;
+
+.subtitle1 {
+  font-size: 1.375rem;
+}
 
 body {
   overflow-x: hidden;

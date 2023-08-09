@@ -1,8 +1,6 @@
 "use client";
 import * as React from "react";
 
-import { Grid, Box, Button } from "@mui/material";
-
 import { useTina } from "tinacms/dist/react";
 import client from "../../tina/__generated__/client";
 
@@ -70,44 +68,32 @@ const BlogList = (props: IPostListProps) => {
   const [heroPost] = fetchedHeroPost?.postConnection?.edges || [];
 
   return (
-    <Grid className="global-spacer">
-      <Box
-        sx={{
-          paddingBlockStart: "4rem",
-          display: "flex",
-          flexDirection: { xs: "column-reverse", lg: "row" },
-          gridRowGap: { xs: "5rem", lg: "7rem" },
-          gridColumnGap: { xs: "0", lg: "7rem" },
-        }}
+    <div className="global-spacer">
+      <div
+        className={
+          "pt-16 flex flex-col-reverse lg:flex-row gap-y-20 lg:gap-y-28 gap-x-0 lg:gap-x-28"
+        }
       >
         <HeroPost post={heroPost?.node} />
         <AboutCard />
-      </Box>
+      </div>
 
-      <Box
-        sx={{
-          paddingBlock: "6rem",
-          display: "grid",
-          gridTemplateColumns: {
-            xs: "minmax(0, 1fr)",
-            lg: "repeat(2, minmax(0, 1fr))",
-          },
-          gridRowGap: { xs: "5rem", lg: "5rem" },
-          gridColumnGap: { xs: "0", lg: "7rem" },
-        }}
-      >
+      <div className="py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-y-[5rem] gap-x-0 lg:gap-x-[7rem]">
         {React.Children.toArray(
           posts.map(({ node }: { node: Post }) => <BlogPost post={node} />)
         )}
-      </Box>
-      <Box
-        sx={{ display: "grid", placeItems: "center", paddingBlockEnd: "2rem" }}
-      >
+      </div>
+      <div className="grid place-items-center pb-4">
         {!!pageInfo?.hasPreviousPage && (
-          <Button onClick={queryPosts}>Load More</Button>
+          <button
+            onClick={queryPosts}
+            className="text-primary-main hover:text-primary-light"
+          >
+            Load More
+          </button>
         )}
-      </Box>
-    </Grid>
+      </div>
+    </div>
   );
 };
 
