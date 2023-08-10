@@ -1,3 +1,4 @@
+"use client";
 import { Comfortaa } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 
@@ -26,45 +27,6 @@ let theme = createTheme({
     text: {
       primary: "#212529",
       secondary: "#6c757d",
-    },
-  },
-  typography: {
-    fontFamily: comfortaa.style.fontFamily,
-    h1: {
-      fontWeight: 700,
-    },
-    h2: {
-      fontWeight: 700,
-    },
-    h3: {
-      fontWeight: 700,
-    },
-    h4: {
-      fontWeight: 700,
-    },
-    h5: {
-      fontWeight: 700,
-    },
-    h6: {
-      fontWeight: 700,
-    },
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          overflowX: "hidden",
-          overflowY: "overlay",
-          "&::-webkit-scrollbar": {
-            width: "0.312rem",
-            borderRadius: "1rem",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "#000000b3",
-            borderRadius: "1rem",
-          },
-        },
-      },
     },
   },
 });
