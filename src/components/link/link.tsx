@@ -1,6 +1,6 @@
 import * as React from "react";
 import clsx from "clsx";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 
 interface NextLinkComposedProps
@@ -37,7 +37,7 @@ export const NextLinkComposed = React.forwardRef<
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      passHref
+      // passHref
       locale={locale}
       legacyBehavior={legacyBehavior}
     >
@@ -77,7 +77,6 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
     ...other
   } = props;
 
-  const router = useRouter();
   const currentPathname = usePathname();
   const pathname = typeof href === "string" ? href : href.pathname;
   const className = clsx(classNameProps, {
