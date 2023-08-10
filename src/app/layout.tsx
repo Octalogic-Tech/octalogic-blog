@@ -17,10 +17,10 @@ const siteUrl = `https://${HOST}`;
 // These styles apply to every route in the application
 import "@/styles/globals.css";
 
-export const metadata: Metadata = {
-  title: "Home",
-  description: "Welcome to Next.js",
-};
+// export const metadata: Metadata = {
+//   title: "Home",
+//   description: "Welcome to Next.js",
+// };
 
 export const comfortaa = Comfortaa({
   weight: ["300", "400", "500", "600", "700"],
