@@ -1,10 +1,8 @@
 import * as React from "react";
 
-import { Typography, Box, Grid } from "@mui/material";
-
 const AboutCard = () => (
   <div className="flex flex-1 grow">
-    <Box className="p-6 bg-[#3A9086] rounded-lg">
+    <div className="p-6 bg-[#3A9086] rounded-lg">
       <h6 className="text-[#F3F4F6]">About</h6>
 
       <p className="mt-4 text-[#F3F4F6]">
@@ -24,7 +22,7 @@ const AboutCard = () => (
         leverages cutting-edge technology and industry best practices that meet
         client&apos;s specific needs and goals.
       </p>
-    </Box>
+    </div>
   </div>
 );
 

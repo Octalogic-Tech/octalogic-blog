@@ -9,7 +9,6 @@ import {
 
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
-import MobileSpeedDial from "@/components/speed-dial/speed-dial";
 
 import { HOST, IS_LIVE } from "@/config/vars";
 
@@ -205,7 +204,6 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <MobileSpeedDial />
       </body>
     </html>
   );
