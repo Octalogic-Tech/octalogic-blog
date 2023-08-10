@@ -76,6 +76,7 @@ export async function generateMetadata({
     title: seo?.title,
     description: seo?.description,
     alternates: { canonical: postUrl },
+    metadataBase: new URL(siteUrl),
     openGraph: {
       title: seo?.title,
       description: seo?.description,

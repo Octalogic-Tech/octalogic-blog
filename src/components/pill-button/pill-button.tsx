@@ -26,7 +26,7 @@ export function PillButton(props: {
     <ConditionalLinkWrapper
       condition={href}
       wrapper={(children: ReactElement) => (
-        <Link href={href as string} passHref>
+        <Link href={href as string}>
           {children}
         </Link>
       )}

@@ -37,7 +37,7 @@ export const NextLinkComposed = React.forwardRef<
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      passHref
+      // passHref
       locale={locale}
       legacyBehavior={legacyBehavior}
     >
