@@ -33,11 +33,7 @@ const TITLE = "Octalogic Tech - Offshore Mobile & Web Development";
 const DESCRIPTION =
   "Octalogic Tech provides offshore mobile & web development along with remote team capabilities. We specialise in custom Web Apps, Cross Platform Mobile Apps and Websites.";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const IMAGES = [
     {
       url: `/images/logos/O-Only.png`,
