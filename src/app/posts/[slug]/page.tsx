@@ -15,11 +15,7 @@ const siteUrl = `https://${HOST}`;
 
 export async function generateStaticParams() {
   const { data } = await client.queries.postConnection();
-  if (!data?.postConnection?.edges?.length)
-    return {
-      paths: [],
-      fallback: false,
-    };
+  if (!data?.postConnection?.edges?.length) return [];
 
   const paths = data?.postConnection?.edges
     .map((x) => {
