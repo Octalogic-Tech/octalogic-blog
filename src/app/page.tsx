@@ -6,7 +6,7 @@ import IPostListProps from "@/interfaces/IPostListProps";
 
 import BlogList from "./blog-list-page";
 
-export const getBlogs = async () => {
+const getBlogs = async () => {
   try {
     const { data, query, variables } = await client.queries.postConnection({
       filter: { isHeroPost: { eq: false } },

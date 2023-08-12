@@ -13,7 +13,7 @@ const siteUrl = `https://${HOST}`;
 // eslint-disable-next-line import/no-unassigned-import
 import "@/styles/globals.css";
 
-export const comfortaa = Comfortaa({
+const comfortaa = Comfortaa({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",

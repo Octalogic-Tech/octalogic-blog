@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   return paths;
 }
 
-export const getPost = async (params: { slug: string }) => {
+const getPost = async (params: { slug: string }) => {
   if (!params?.slug) return undefined;
 
   const { data, query, variables } = await client.queries.post({
