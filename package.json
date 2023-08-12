@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "dev": "doppler run -- tinacms dev -c \"next dev\"",
-    "build": "doppler run -- tinacms build && next build",
-    "start": "doppler run -- tinacms build && next start",
+    "build": "tinacms build && next build",
+    "start": "tinacms build && next start",
     "lint": "next lint -c .eslintrc.production.json",
     "prettier:format": "npx prettier --write \"**/*.{tsx,ts,jsx,js,css,json,css,scss,md}\"",
     "prettier:check": "npx prettier \"**/*.{tsx,ts,jsx,js,css,json,css,scss,md}\" --check",
