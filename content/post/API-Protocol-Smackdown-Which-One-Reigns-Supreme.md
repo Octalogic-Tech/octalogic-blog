@@ -1,5 +1,5 @@
 ---
-title: 'API Protocol Smackdown: Which One Reigns Supreme'
+title: 'API Protocol Smackdown: Which One Reigns Supreme?'
 summary: >-
   Selecting the right API protocol can impact your app's success. Consider
   performance, scalability, security, ease of implementation and maintenance.
