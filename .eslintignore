@@ -183,3 +183,5 @@ thumb
 sketch
 
 .lintstagedrc.js
+content/*
+tina/*
