@@ -8,18 +8,12 @@ import HeroPost from "@/components/posts/HeroPost";
 import BlogPost from "@/components/posts/BlogPost";
 import AboutCard from "@/components/cards/AboutCard";
 
-import IPostListProps, {
-  Edge,
-  Data,
-  PageInfo,
-} from "@/interfaces/IPostListProps";
+import IPostListProps, { Edge, Data, PageInfo } from "@/interfaces/IPostListProps";
 
 import { Post } from "@/interfaces/IPostProps";
 
 const BlogList = (props: IPostListProps) => {
-  const [pageInfo, setPageInfo] = React.useState<undefined | PageInfo>(
-    undefined
-  );
+  const [pageInfo, setPageInfo] = React.useState<undefined | PageInfo>(undefined);
   const [posts, setPosts] = React.useState<Edge[]>([]);
   const [query, setQuery] = React.useState<{
     query: string;
@@ -37,11 +31,15 @@ const BlogList = (props: IPostListProps) => {
   }, []);
 
   const queryPosts = async () => {
-    const { data, query, variables } = await client.queries.postConnection({
+    const {
+      data,
+      query: postsQuery,
+      variables,
+    } = await client.queries.postConnection({
       ...props.posts.variables,
       before: pageInfo?.endCursor,
     });
-    setQuery({ data, query, variables });
+    setQuery({ data, query: postsQuery, variables });
   };
 
   const { data: fetchedPosts }: { data: object } = useTina(query);
@@ -79,16 +77,11 @@ const BlogList = (props: IPostListProps) => {
       </div>
 
       <div className="py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-y-[5rem] gap-x-0 lg:gap-x-[7rem]">
-        {React.Children.toArray(
-          posts.map(({ node }: { node: Post }) => <BlogPost post={node} />)
-        )}
+        {React.Children.toArray(posts.map(({ node }: { node: Post }) => <BlogPost post={node} />))}
       </div>
       <div className="grid place-items-center pb-4">
         {!!pageInfo?.hasPreviousPage && (
-          <button
-            onClick={queryPosts}
-            className="text-primary-main hover:text-primary-light"
-          >
+          <button onClick={queryPosts} className="text-primary-main hover:text-primary-light">
             Load More
           </button>
         )}

@@ -24,8 +24,8 @@ export const CATEGORIES: { value: string; label: string }[] = [
 
 export default defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID as string,
-  token: process.env.TINA_TOKEN as string,
+  clientId: process.env.NEXT_TINA_CLIENT_ID as string,
+  token: process.env.NEXT_TINA_TOKEN as string,
   // Relative to the _root_ of your repo
   // localContentPath: "../../demo-content-repo",
   media: {
@@ -156,8 +156,7 @@ export default defineConfig({
                 name: "image",
                 type: "image",
                 label: "SEO Image",
-                description:
-                  "A 300x300 image that will be displayed whenever a link is posted",
+                description: "A 300x300 image that will be displayed whenever a link is posted",
                 required: false,
               },
               {

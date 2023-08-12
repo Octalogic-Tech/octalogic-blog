@@ -78,4 +78,5 @@ export interface PageInfo {
   endCursor: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Variables {}

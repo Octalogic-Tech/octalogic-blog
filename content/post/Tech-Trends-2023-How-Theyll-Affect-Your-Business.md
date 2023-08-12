@@ -1,5 +1,5 @@
 ---
-title: 'Tech Trends 2023: How They''ll Affect Your Business'
+title: "Tech Trends 2023: How They'll Affect Your Business"
 summary: >-
   Discover the top emerging technologies shaping the tech industry in 2023. From
   AI and 5G to blockchain and quantum computing, explore how these trends are
@@ -9,7 +9,7 @@ postDate: 2023-03-26T18:30:00.000Z
 tags:
   - trends
 seo:
-  title: 'Tech Trends 2023: How They''ll Affect Your Business'
+  title: "Tech Trends 2023: How They'll Affect Your Business"
   description: >-
     Discover the tech trends transforming our world. From AI and 5G to
     blockchain and quantum computing, explore the future of tech in 2023.

@@ -9,33 +9,22 @@ interface LinkWrapperProps {
   children: ReactElement;
 }
 
-const ConditionalLinkWrapper = ({
-  condition,
-  wrapper,
-  children,
-}: LinkWrapperProps) => (condition ? wrapper(children) : children);
+const ConditionalLinkWrapper = ({ condition, wrapper, children }: LinkWrapperProps) =>
+  condition ? wrapper(children) : children;
 
-export function PillButton(props: {
-  title: string;
-  href?: string;
-  className?: string;
-}) {
+export function PillButton(props: { title: string; href?: string; className?: string }) {
   const { title, href, className = "", ...otherProps } = props;
 
   return (
     <ConditionalLinkWrapper
       condition={href}
-      wrapper={(children: ReactElement) => (
-        <Link href={href as string}>
-          {children}
-        </Link>
-      )}
+      wrapper={(children: ReactElement) => <Link href={href as string}>{children}</Link>}
     >
       <button
         {...otherProps}
         className={clsx(
           "text-base rounded-[1.562rem] text-info-contrastText bg-secondary-main py-3 px-8 pill-btn",
-          className
+          className,
         )}
         // style={{
         //   ":hover": {

@@ -7,7 +7,6 @@ import client from "../../../../tina/__generated__/client";
 
 import BlogContent from "./blog-content";
 
-import { Post } from "@/interfaces/IPostProps";
 import IPostProps, { IPostProps2 } from "@/interfaces/IPostProps";
 
 import { HOST } from "@/config/vars";
@@ -16,11 +15,7 @@ const siteUrl = `https://${HOST}`;
 
 export async function generateStaticParams() {
   const { data } = await client.queries.postConnection();
-  if (!data?.postConnection?.edges?.length)
-    return {
-      paths: [],
-      fallback: false,
-    };
+  if (!data?.postConnection?.edges?.length) return [];
 
   const paths = data?.postConnection?.edges
     .map((x) => {
@@ -33,7 +28,7 @@ export async function generateStaticParams() {
   return paths;
 }
 
-export const getPost = async (params: { slug: string }) => {
+const getPost = async (params: { slug: string }) => {
   if (!params?.slug) return undefined;
 
   const { data, query, variables } = await client.queries.post({
@@ -111,14 +106,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   }
   const { props } = fetchedPost as unknown as IPostProps2;
 
-  const {
-    data,
-    query,
-    variables,
-    dataList,
-    queryList,
-    variableList,
-  }: IPostProps = props;
+  const { data, query, variables, dataList, queryList, variableList }: IPostProps = props;
 
   const post = data?.post;
 

@@ -26,7 +26,7 @@ const BlogPostCard = ({ post }: { post?: Post }) => (
               <h6 className="bg-[#DADBDD] text-[#656B78] py-[0.625rem] px-[1.875rem] rounded subtitle1">
                 {tag}
               </h6>
-            ))
+            )),
           )}
         </div>
       </div>

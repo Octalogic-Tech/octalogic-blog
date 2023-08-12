@@ -1,5 +1,5 @@
 export interface ISocial {
-    name: string;
-    link: string;
-    iconUrl: string;
-  }
+  name: string;
+  link: string;
+  iconUrl: string;
+}

@@ -181,3 +181,7 @@ node_modules
 psd
 thumb
 sketch
+
+.lintstagedrc.js
+content/*
+tina/*

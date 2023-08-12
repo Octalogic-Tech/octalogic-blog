@@ -9,8 +9,8 @@ export default interface IPostProps {
   variableList: Variables;
 }
 
-export  interface IPostProps2 {
-  props: IPostProps
+export interface IPostProps2 {
+  props: IPostProps;
 }
 
 export interface Data {
