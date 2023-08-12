@@ -1,5 +1,5 @@
 ---
-title: 'Cloud Storage: Benefits and Its Role in Cloud Infrastructure'
+title: "Cloud Storage: Benefits and Its Role in Cloud Infrastructure"
 summary: >-
   Cloud storage is a crucial component of modern computing infrastructure. Its
   benefits include scalability, accessibility, security, disaster recovery, and
@@ -9,7 +9,7 @@ summary: >-
 categories: web-development
 postDate: 2023-03-29T18:30:00.000Z
 seo:
-  title: 'Accessible, Scalable, and Secure: The Power of Cloud Storage'
+  title: "Accessible, Scalable, and Secure: The Power of Cloud Storage"
   description: >-
     Cloud storage is crucial for modern computing. Benefits include scalability,
     accessibility, security, disaster recovery, and collaboration.

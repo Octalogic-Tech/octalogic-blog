@@ -49,9 +49,7 @@ function Header() {
           <NextLink
             href={item.linkHref}
             className={`no-underline ${
-              pathname === item.linkHref
-                ? "text-primary-main"
-                : "text-info-main"
+              pathname === item.linkHref ? "text-primary-main" : "text-info-main"
             } hover:text-primary-main text-base`}
           >
             {item.linkName}
@@ -81,9 +79,7 @@ function Header() {
               />
             </NextLink>
           </div>
-          <div className={"hidden sm:flex sm:flex-row sm:items-center"}>
-            {navLinks(navItems)}
-          </div>
+          <div className={"hidden sm:flex sm:flex-row sm:items-center"}>{navLinks(navItems)}</div>
         </div>
       </nav>
     </div>

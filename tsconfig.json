@@ -1,12 +1,8 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": false,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -18,74 +14,32 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/interfaces/*": [
-        "./interfaces/*"
-      ],
-      "@/components/*": [
-        "./components/*"
-      ],
-      "@/pages/*": [
-        "./pages/*"
-      ],
-      "@/routes/*": [
-        "./routes/*"
-      ],
-      "@/constants/*": [
-        "./constants/*"
-      ],
-      "@/layouts/*": [
-        "./layouts/*"
-      ],
-      "@/hooks/*": [
-        "./hooks/*"
-      ],
-      "@/atoms/*": [
-        "./atoms/*"
-      ],
-      "@/types/*": [
-        "./types/*"
-      ],
-      "@/schemas/*": [
-        "./schemas/*"
-      ],
-      "@/images/*": [
-        "./images/*"
-      ],
-      "@/config/*": [
-        "./config/*"
-      ],
-      "@/helpers/*": [
-        "./helpers/*"
-      ],
-      "@/utils/*": [
-        "./utils/*"
-      ],
-      "@/features/*": [
-        "./features/*"
-      ],
-      "@/styles/*": [
-        "./styles/*"
-      ]
-    },
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": false,
+    "pretty": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "alwaysStrict": true,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
+  "compileOnSave": true,
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/constants/vars.js",
+    "src/app/layout.js"
   ],
-  "exclude": [
-    "node_modules",
-    ".next"
-  ]
+  "exclude": [".git", "node_modules", "logs", "dist", "build"]
 }

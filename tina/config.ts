@@ -156,8 +156,7 @@ export default defineConfig({
                 name: "image",
                 type: "image",
                 label: "SEO Image",
-                description:
-                  "A 300x300 image that will be displayed whenever a link is posted",
+                description: "A 300x300 image that will be displayed whenever a link is posted",
                 required: false,
               },
               {

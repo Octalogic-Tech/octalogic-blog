@@ -1,11 +1,6 @@
 import { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
-import {
-  LogoJsonLd,
-  SocialProfileJsonLd,
-  OrganizationJsonLd,
-  LocalBusinessJsonLd,
-} from "next-seo";
+import { LogoJsonLd, SocialProfileJsonLd, OrganizationJsonLd, LocalBusinessJsonLd } from "next-seo";
 
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
@@ -15,12 +10,8 @@ import { HOST, IS_LIVE } from "@/config/vars";
 const siteUrl = `https://${HOST}`;
 
 // These styles apply to every route in the application
+// eslint-disable-next-line import/no-unassigned-import
 import "@/styles/globals.css";
-
-// export const metadata: Metadata = {
-//   title: "Home",
-//   description: "Welcome to Next.js",
-// };
 
 export const comfortaa = Comfortaa({
   weight: ["300", "400", "500", "600", "700"],
@@ -74,11 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <LogoJsonLd
-          useAppDir={true}
-          logo="/images/logos/O-Only.png"
-          url={siteUrl}
-        />
+        <LogoJsonLd useAppDir={true} logo="/images/logos/O-Only.png" url={siteUrl} />
         <SocialProfileJsonLd
           useAppDir={true}
           type="Organization"
@@ -166,13 +153,7 @@ export default function RootLayout({
             {
               opens: "10:00",
               closes: "18:00",
-              dayOfWeek: [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-              ],
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
               validFrom: "2017-01-01",
               validThrough: "2070-01-01",
             },
@@ -180,18 +161,8 @@ export default function RootLayout({
         />
         <link rel="icon" href="/images/favicon/favicon.ico" />
         <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/images/favicon/favicon-16x16.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/images/favicon/favicon-32x32.png"
-        />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
         <meta name="theme-color" content={"#26A69A"} />
         <meta name="msapplication-TileColor" content={"#26A69A"} />
         <meta name="emotion-insertion-point" content="" />

@@ -1,5 +1,5 @@
 ---
-title: 'Render Me This: A Guide to Frontend Frameworks'
+title: "Render Me This: A Guide to Frontend Frameworks"
 summary: >-
   Learn about frontend rendering mechanisms in modern frameworks. Discover use
   cases, pros and cons, and supported frameworks in this comprehensive guide.
@@ -8,7 +8,7 @@ postDate: 2023-04-24T18:30:00.000Z
 tags:
   - frontend
 seo:
-  title: 'Render Me This: A Guide to Frontend Frameworks'
+  title: "Render Me This: A Guide to Frontend Frameworks"
   description: >-
     Explore rendering mechanisms in frontend frameworks: use cases, pros and
     cons, and supported frameworks.
@@ -23,21 +23,21 @@ SSR renders web pages on the server and sends them to the client. It allows for 
 
 Pros:
 
-* Faster initial page load time due to pre-rendered HTML
-* Better SEO performance
-* Provides an optimized experience for users with slower or unreliable internet connections
-* Can help to improve accessibility
+- Faster initial page load time due to pre-rendered HTML
+- Better SEO performance
+- Provides an optimized experience for users with slower or unreliable internet connections
+- Can help to improve accessibility
 
 Cons:
 
-* More difficult to implement than client-side rendering
-* Limited interactivity
-* Higher server-side processing requirements
-* Potential for slower subsequent page loads due to increased server load
+- More difficult to implement than client-side rendering
+- Limited interactivity
+- Higher server-side processing requirements
+- Potential for slower subsequent page loads due to increased server load
 
 Frameworks that support SSR: Next.js, Nuxt.js, Angular Universal
 
-***
+---
 
 ## Client-side rendering (CSR)
 
@@ -45,21 +45,21 @@ CSR renders web pages in the browser using JavaScript. It allows for more dynami
 
 Pros:
 
-* Highly interactive and dynamic
-* Easier to develop than SSR
-* Can provide a seamless user experience
-* Reduces server-side processing requirements
+- Highly interactive and dynamic
+- Easier to develop than SSR
+- Can provide a seamless user experience
+- Reduces server-side processing requirements
 
 Cons:
 
-* Slower initial page load times due to JavaScript loading and rendering
-* Poor SEO performance without additional optimization
-* Limited accessibility for users with slower or unreliable internet connections
-* Can result in a less optimized experience for users with older browsers
+- Slower initial page load times due to JavaScript loading and rendering
+- Poor SEO performance without additional optimization
+- Limited accessibility for users with slower or unreliable internet connections
+- Can result in a less optimized experience for users with older browsers
 
 Frameworks that support CSR: React, Vue.js, Angular
 
-***
+---
 
 ## Static site generation (SSG)
 
@@ -67,20 +67,20 @@ SSG pre-generates web pages as static HTML files during the build process, resul
 
 Pros:
 
-* Fast page load times due to pre-rendered HTML
-* Excellent SEO performance
-* Low server-side processing requirements
-* Provides a highly optimized experience for users
+- Fast page load times due to pre-rendered HTML
+- Excellent SEO performance
+- Low server-side processing requirements
+- Provides a highly optimized experience for users
 
 Cons:
 
-* Limited interactivity
-* Difficult to implement dynamic content
-* Limited dynamic routing capabilities
+- Limited interactivity
+- Difficult to implement dynamic content
+- Limited dynamic routing capabilities
 
 Frameworks that support SSG: Gatsby, Next.js, Hugo
 
-***
+---
 
 ## Hybrid rendering
 
@@ -88,15 +88,15 @@ Hybrid rendering combines the benefits of SSR and CSR, allowing for fast initial
 
 Pros:
 
-* Fast initial load times with pre-rendered HTML
-* Highly interactive and dynamic
-* Provides an optimized experience for users
+- Fast initial load times with pre-rendered HTML
+- Highly interactive and dynamic
+- Provides an optimized experience for users
 
 Cons:
 
-* More complex implementation than single rendering types
-* Higher server-side processing requirements
-* Requires careful planning and optimization to ensure optimal performance
+- More complex implementation than single rendering types
+- Higher server-side processing requirements
+- Requires careful planning and optimization to ensure optimal performance
 
 Frameworks that support hybrid rendering: Nuxt.js, Next.js
 
