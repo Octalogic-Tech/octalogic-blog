@@ -3,6 +3,7 @@ name: PR Validation & Preview Deploy
 on:
   pull_request:
     branches:
+      - main
       - develop
       - experimental
     types: [opened, synchronize, reopened]
