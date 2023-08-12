@@ -18,10 +18,10 @@ export async function generateStaticParams() {
   if (!data?.postConnection?.edges?.length) return [];
 
   const paths = data?.postConnection?.edges
-    .map((x) => {
-      if (!x?.node) return null;
+    .map((item) => {
+      if (!item?.node) return null;
 
-      return { slug: x.node._sys.filename };
+      return { slug: item.node._sys.filename };
     })
     .filter((row) => row !== null);
 
@@ -72,17 +72,18 @@ export async function generateMetadata({
     description: seo?.description,
     alternates: { canonical: postUrl },
     metadataBase: new URL(siteUrl),
+    category: post.categories,
+    twitter: {
+      card: "summary_large_image",
+      title: seo?.title,
+      description: seo?.description,
+      images: seo?.image ? [`${siteUrl}${seo.image}`] : [],
+    },
     openGraph: {
       title: seo?.title,
       description: seo?.description,
       url: postUrl,
       type: "article",
-      //   article: {
-      //     publishedTime: post.postDate,
-      //     modifiedTime: post.postDate,
-      //     section: post.categories.length ? post.categories[0] : "",
-      //     tags: post.tags || [],
-      //   },
       images: seo?.image
         ? [
             {

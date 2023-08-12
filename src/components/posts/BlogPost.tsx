@@ -11,7 +11,7 @@ const BlogPostCard = ({ post }: { post?: Post }) => (
         <h6 className="text-[#999999]">{post?.categories}</h6>
       </div>
       <div className="mt-[0.6rem]">
-        <h4>{post?.title}</h4>
+        <h3>{post?.title}</h3>
       </div>
       <div className="mt-8">
         <p className="line-clamp-6">{post?.summary}</p>
@@ -32,6 +32,7 @@ const BlogPostCard = ({ post }: { post?: Post }) => (
       </div>
       <div className="w-full sm:w-3/12 flex justify-start sm:justify-end items-start sm:items-end">
         <Link
+          prefetch={false}
           href={`posts/${post?._sys?.filename?.replaceAll("/posts", "")}`}
           className="text-[#6B7280] subtitle1"
         >

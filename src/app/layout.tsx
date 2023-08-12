@@ -36,9 +36,23 @@ export async function generateMetadata(): Promise<Metadata> {
   ];
   return {
     title: TITLE,
+    icons: [
+      { rel: "icon", url: "/images/favicon/favicon.ico" },
+      { rel: "shortcut icon", url: "/images/favicon/favicon.ico" },
+      {
+        rel: "image/png",
+        sizes: "16x16",
+        url: "/images/favicon/favicon-16x16.png",
+      },
+      {
+        rel: "image/png",
+        sizes: "32x32",
+        url: "/images/favicon/favicon-32x32.png",
+      },
+    ],
     description: DESCRIPTION,
     alternates: { canonical: siteUrl },
-    robots: { index: !IS_LIVE, follow: !IS_LIVE },
+    robots: { index: IS_LIVE, follow: IS_LIVE },
     twitter: {
       card: "summary_large_image",
       creator: "@OctalogicTech",
