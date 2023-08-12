@@ -20,6 +20,10 @@ export const CATEGORIES: { value: string; label: string }[] = [
     value: "sysops",
     label: "Sysops",
   },
+  {
+    value: "project-management",
+    label: "Project Management",
+  },
 ];
 
 export default defineConfig({
