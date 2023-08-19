@@ -49,7 +49,7 @@ export default defineConfig({
         name: "post",
         path: "content/post",
         ui: {
-          router: ({ document }) => {
+          router: async ({ document }) => {
             // return "/posts/Cloudfront";
             // navigate to the post that was clicked
             return `/posts/${document._sys.filename}`;
