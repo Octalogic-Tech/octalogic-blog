@@ -3,6 +3,9 @@ import * as React from "react";
 import client from "@/config/client";
 
 import BlogPost from "@/components/posts/BlogPost";
+import HeroPost from "@/components/posts/HeroPost";
+
+import AboutCard from "@/components/cards/AboutCard";
 
 import IPaginatedResult from "@/interfaces/IPaginatedResult";
 
@@ -35,20 +38,21 @@ const getBlogs = async () => {
 
 const BlogListPage = async () => {
   const result = await getBlogs();
+  const [heroBlog, ...blogs] = result.blogs;
 
   return (
     <div className="global-spacer">
-      {/* <div
+      <div
         className={
           "pt-16 flex flex-col-reverse lg:flex-row gap-y-20 lg:gap-y-28 gap-x-0 lg:gap-x-28"
         }
       >
-        <HeroPost post={heroPost?.node} />
+        <HeroPost post={heroBlog} />
         <AboutCard />
-      </div> */}
+      </div>
 
       <div className="py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-y-[5rem] gap-x-0 lg:gap-x-[7rem]">
-        {React.Children.toArray(result.blogs.map((blog) => <BlogPost post={blog} />))}
+        {React.Children.toArray(blogs.map((blog) => <BlogPost post={blog} />))}
       </div>
       {/* TODO: pagination support */}
       {/* <div className="grid place-items-center pb-4">

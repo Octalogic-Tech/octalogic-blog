@@ -7,6 +7,8 @@ import NextLink from "next/link";
 
 import PillButton from "@/components/pill-button/pill-button";
 
+import vars from "@/config/vars";
+
 interface NavItems {
   linkName: string;
   linkHref: string;
@@ -19,15 +21,15 @@ const navItems: NavItems[] = [
   },
   {
     linkName: "Who We Are",
-    linkHref: "/about",
+    linkHref: `${vars.domain}/about`,
   },
   {
     linkName: "Services",
-    linkHref: "/services",
+    linkHref: `${vars.domain}/services`,
   },
   {
     linkName: "Let's Talk",
-    linkHref: "/contact",
+    linkHref: `${vars.domain}/contact`,
   },
 ];
 
@@ -41,7 +43,7 @@ function Header() {
           <PillButton
             title={item.linkName}
             className={"py-[0.375rem] px-[0.75rem]"}
-            href={"/contact"}
+            href={`${vars.domain}/contact`}
           />
         </div>
       ) : (

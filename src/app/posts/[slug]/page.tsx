@@ -4,6 +4,7 @@ import { ArticleJsonLd } from "next-seo";
 import { notFound } from "next/navigation";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
+import { parse, format } from "date-fns";
 
 import client from "@/config/client";
 
@@ -103,6 +104,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
   const postUrl = `${siteUrl}/posts/${post.uid}`;
 
+  const postDate: Date = parse(blog.post_date, "yyyy-MM-dd", new Date());
+
   return (
     <>
       <>
@@ -112,7 +115,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           title={blog.meta_title}
           description={blog.meta_description}
           images={blog.cover_image?.url ? [blog.cover_image?.url] : []}
-          datePublished={blog.post_date}
+          datePublished={postDate.toISOString()}
           // dateModified={post.postDate}
           authorName="Octalogic Tech"
         />
@@ -120,7 +123,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
 
       <div className="flex justify-center">
         <div className="mt-12 max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg px-12 md:mt-16 md:px-16 lg:px-20">
-          {/* <p>{`Updated ${format(parseISO(post?.postDate) || new Date(), "MMM dd, yyyy")}`}</p> */}
+          <p>{`Published ${format(postDate, "MMM dd, yyyy")}`}</p>
 
           {blog.cover_image && <PrismicNextImage field={blog.cover_image} />}
 
