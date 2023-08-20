@@ -46,7 +46,7 @@ jobs:
       - name: Run linter & Build
         run: |
           doppler run npm run lint
-          doppler run npm run local:build
+          doppler run npm run build
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
 
