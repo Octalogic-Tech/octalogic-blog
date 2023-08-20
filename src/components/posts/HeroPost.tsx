@@ -1,4 +1,4 @@
-import * as React from "react";
+/* import * as React from "react";
 
 import Link from "@/components/link/link";
 
@@ -40,3 +40,4 @@ const BlogPost = ({ post }: { post?: Post }) => (
 );
 
 export default BlogPost;
+ */

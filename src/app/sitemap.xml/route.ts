@@ -1,8 +1,8 @@
 import { getServerSideSitemap, ISitemapField } from "next-sitemap";
 
-import client from "../../../tina/__generated__/client";
+import client from "@/config/client";
 
-import { HOST } from "@/config/vars";
+import vars from "@/config/vars";
 
 interface IPost {
   title: string;
@@ -14,20 +14,18 @@ export const revalidate = 3600; // revalidate at most every hour
 
 export async function GET() {
   let paths: IPost[] = [];
-  const { data } = await client.queries.postConnection();
-  if (!data?.postConnection?.edges?.length) paths = [];
 
-  paths = data?.postConnection?.edges
-    ?.filter((item) => item?.node?.id)
-    .map((item) => ({
-      title: item?.node?.title,
-      slug: item?.node?._sys.filename,
-      date: item?.node?.postDate,
-    })) as IPost[];
+  const blogs = await client.getAllByType("blog");
+
+  paths = blogs.map((blog) => ({
+    title: blog.data.title as string,
+    slug: blog.uid,
+    date: blog.data.post_date as string,
+  }));
 
   const dynamicSitemap: ISitemapField[] = [
     {
-      loc: `${HOST}`,
+      loc: `${vars.host}`,
       lastmod: new Date().toISOString(),
       changefreq: "monthly",
       priority: 0.9,
@@ -36,7 +34,7 @@ export async function GET() {
 
   paths.forEach((item: IPost) => {
     const sitemapEntry = {
-      loc: `${HOST}/${item.slug}`,
+      loc: `${vars.host}/posts/${item.slug}`,
       lastmod: item.date,
       changefreq: "monthly",
       priority: 0.7,

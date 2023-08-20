@@ -62,7 +62,7 @@ function Header() {
   return (
     <div className={"flex"}>
       <nav
-        className={`relative flex flex-col w-full box-border flex-shrink-0 relative text-white bg-transparent justify-center h-[3.25rem] sm:h-[7.25rem] sm:py-[0] sm:px-[2.4rem]`}
+        className={`relative flex flex-col w-full box-border flex-shrink-0 text-white bg-transparent justify-center h-[3.25rem] sm:h-[7.25rem] sm:py-[0] sm:px-[2.4rem]`}
       >
         <div
           className={

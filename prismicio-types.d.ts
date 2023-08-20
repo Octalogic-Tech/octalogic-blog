@@ -223,6 +223,7 @@ export type AllDocumentTypes = AuthorDocument | BlogDocument | CategoryDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
+    // eslint-disable-next-line @typescript-eslint/prefer-function-type
     (
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig,
