@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 import * as React from "react";
 
 import { useTina } from "tinacms/dist/react";
@@ -91,3 +91,4 @@ const BlogList = (props: IPostListProps) => {
 };
 
 export default BlogList;
+ */

@@ -2,24 +2,20 @@ import * as React from "react";
 
 import Link from "@/components/link/link";
 
-import { Post } from "@/interfaces/IPostProps";
+import IPost from "@/interfaces/IPost";
 
-const BlogPostCard = ({ post }: { post?: Post }) => (
+const BlogPostCard = ({ post }: { post: IPost }) => (
   <div className="flex flex-col justify-between flex-1 grow sm:grow-[2]">
-    <Link
-      prefetch={false}
-      href={`posts/${post?._sys?.filename?.replaceAll("/posts", "")}`}
-      className="text-[#6B7280] subtitle1"
-    >
+    <Link prefetch={false} href={post.url}>
       <div>
         <div>
-          <p className="text-[#999999]">{post?.categories}</p>
+          <p className="text-[#999999]">{post.data.category.slug}</p>
         </div>
         <div className="mt-[0.6rem]">
-          <h3>{post?.title}</h3>
+          <h2>{post.data.title}</h2>
         </div>
         <div className="mt-8">
-          <p className="line-clamp-6">{post?.summary}</p>
+          <p className="line-clamp-6">{post.data.post_summary}</p>
         </div>
       </div>
 

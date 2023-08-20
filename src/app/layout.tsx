@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import { LogoJsonLd, SocialProfileJsonLd, OrganizationJsonLd, LocalBusinessJsonLd } from "next-seo";
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "@/prismicio";
 
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
@@ -185,6 +187,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );

@@ -64,6 +64,17 @@ type BlogDocumentDataSlicesSlice = never;
  */
 interface BlogDocumentData {
   /**
+   * Cover Image field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.cover_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cover_image: prismic.ImageField<never>;
+
+  /**
    * Title field in *Blog*
    *
    * - **Field Type**: Text
@@ -73,6 +84,17 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Summary field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Article Summary
+   * - **API ID Path**: blog.post_summary
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  post_summary: prismic.KeyTextField;
 
   /**
    * Post Date field in *Blog*
@@ -140,17 +162,6 @@ interface BlogDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Blog*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
    * Meta Title field in *Blog*
    *
    * - **Field Type**: Text
@@ -212,7 +223,6 @@ export type AllDocumentTypes = AuthorDocument | BlogDocument | CategoryDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
-    // eslint-disable-next-line @typescript-eslint/prefer-function-type
     (
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig,
@@ -225,6 +235,7 @@ declare module "@prismicio/client" {
       AuthorDocumentData,
       BlogDocument,
       BlogDocumentData,
+      BlogDocumentDataSlicesSlice,
       CategoryDocument,
       CategoryDocumentData,
       AllDocumentTypes,

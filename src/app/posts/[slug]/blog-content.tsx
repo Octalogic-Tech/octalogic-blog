@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 import * as React from "react";
 import { format, parseISO } from "date-fns";
 
@@ -32,3 +32,4 @@ export default function BlogContent(props: IPostProps) {
     </div>
   );
 }
+ */
