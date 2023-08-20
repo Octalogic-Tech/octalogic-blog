@@ -1,42 +1,23 @@
 import * as React from "react";
 
-import client from "../../tina/__generated__/client";
-
-import IPostListProps from "@/interfaces/IPostListProps";
-
-import BlogList from "./blog-list-page";
+import client from "@/config/client";
 
 const getBlogs = async () => {
   try {
-    const { data, query, variables } = await client.queries.postConnection({
-      filter: { isHeroPost: { eq: false } },
-      sort: "postDate",
-      last: 4,
-    });
-
-    const {
-      data: heroData,
-      query: heroQuery,
-      variables: heroVariables,
-    } = await client.queries.postConnection({
-      filter: { isHeroPost: { eq: true } },
-      sort: "postDate",
-      last: 1,
+    const blogs = await client.getAllByType("blog", {
+      limit: 20,
     });
 
     return {
       props: {
-        posts: { data, query, variables },
-        heroPost: {
-          data: heroData,
-          query: heroQuery,
-          variables: heroVariables,
-        },
+        blogs,
       },
     };
-  } catch (e) {
+  } catch (error) {
     return {
-      props: {},
+      props: {
+        blogs: [],
+      },
     };
   }
 };
@@ -44,7 +25,10 @@ const getBlogs = async () => {
 const BlogListPage = async () => {
   const { props } = await getBlogs();
 
-  return <BlogList {...(props as unknown as IPostListProps)} />;
+  return <>{props}</>;
+  // const { props } = await getBlogs();
+
+  // return <BlogList {...(props as unknown as IPostListProps)} />;
 };
 
 export default BlogListPage;

@@ -5,9 +5,9 @@ import { LogoJsonLd, SocialProfileJsonLd, OrganizationJsonLd, LocalBusinessJsonL
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 
-import { HOST, IS_LIVE } from "@/config/vars";
+import vars from "@/config/vars";
 
-const siteUrl = `https://${HOST}`;
+const siteUrl = `https://${vars.host}`;
 
 // These styles apply to every route in the application
 // eslint-disable-next-line import/no-unassigned-import
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     description: DESCRIPTION,
     alternates: { canonical: siteUrl },
-    robots: { index: IS_LIVE, follow: IS_LIVE },
+    robots: { index: vars.isProd, follow: vars.isProd },
     twitter: {
       card: "summary_large_image",
       creator: "@OctalogicTech",
@@ -138,7 +138,7 @@ export default function RootLayout({
               availableLanguage: ["English", "Hindi", "Konkani"],
             },
           ]}
-          sameAs={[`https://www.${HOST}`]}
+          sameAs={[`https://www.${vars.host}`]}
           url={siteUrl}
         />
 
@@ -162,7 +162,7 @@ export default function RootLayout({
             longitude: "73.8193395",
           }}
           images={[`${siteUrl}/images/logos/O-Only.png`]}
-          sameAs={[`https://www.${HOST}`]}
+          sameAs={[`https://www.${vars.host}`]}
           openingHours={[
             {
               opens: "10:00",
