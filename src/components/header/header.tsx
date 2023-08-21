@@ -40,10 +40,10 @@ function Header() {
   const navLinks = (navigationItems: NavItems[]) => {
     return navigationItems.map((item: NavItems) => {
       return item.linkName === "Let's Talk" ? (
-        <div key={item.linkName} className={"py-0 px-[0.5rem] sm:px-[1rem]"}>
+        <div key={item.linkName} className={"py-0 px-[0rem] sm:px-[1rem]"}>
           <PillButton
             title={item.linkName}
-            className={"py-[0.375rem] px-[0.75rem]"}
+            className={"py-[0.375rem] px-[1rem] sm:px-[0.75rem] text-xl sm:text-base"}
             href={`${vars.domain}/contact`}
           />
         </div>
@@ -53,7 +53,7 @@ function Header() {
             href={item.linkHref}
             className={`no-underline ${
               pathname === item.linkHref ? "text-primary-main" : "text-info-main"
-            } hover:text-primary-main text-base`}
+            } hover:text-primary-main text-xl sm:text-base`}
           >
             {item.linkName}
           </NextLink>
