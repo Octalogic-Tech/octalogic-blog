@@ -6,16 +6,16 @@ import IPost from "@/interfaces/IPost";
 
 const BlogPost = ({ post }: { post: IPost }) => (
   <div className="flex flex-col justify-between flex-1 grow sm:grow-[2]">
-    <Link href={post.url}>
+    <Link href={post?.url || ""}>
       <div>
         <div>
-          <h5 className="text-[#999999] break-words">{post.data.category.slug}</h5>
+          <h5 className="text-[#999999] break-words">{post?.data?.category?.slug}</h5>
         </div>
         <div className="mt-[0.6rem]">
-          <h1 className="text-[4rem] break-words">{post.data.title}</h1>
+          <h1 className="text-[4rem] break-words">{post?.data?.title}</h1>
         </div>
         <div className="mt-8">
-          <p className="text-[1.6rem] line-clamp-6 break-words">{post.data.post_summary}</p>
+          <p className="text-[1.6rem] line-clamp-6 break-words">{post?.data?.post_summary}</p>
         </div>
       </div>
 

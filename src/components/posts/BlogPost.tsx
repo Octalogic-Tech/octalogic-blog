@@ -6,16 +6,16 @@ import IPost from "@/interfaces/IPost";
 
 const BlogPostCard = ({ post }: { post: IPost }) => (
   <div className="flex flex-col justify-between flex-1 grow sm:grow-[2]">
-    <Link prefetch={false} href={post.url}>
+    <Link prefetch={false} href={post?.url || ""}>
       <div>
         <div>
-          <p className="text-[#999999] break-words">{post.data.category.slug}</p>
+          <p className="text-[#999999] break-words">{post?.data?.category?.slug}</p>
         </div>
         <div className="mt-[0.6rem]">
-          <h2 className="break-words">{post.data.title}</h2>
+          <h2 className="break-words">{post?.data?.title}</h2>
         </div>
         <div className="mt-8">
-          <p className="line-clamp-6 break-words">{post.data.post_summary}</p>
+          <p className="line-clamp-6 break-words">{post?.data?.post_summary}</p>
         </div>
       </div>
 
