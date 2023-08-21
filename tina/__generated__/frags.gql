@@ -1,0 +1,18 @@
+fragment PostParts on Post {
+  coverImage
+  title
+  summary
+  isHeroPost
+  categories
+  postDate
+  tags
+  seo {
+    __typename
+    title
+    description
+    image
+    imageWidth
+    imageHeight
+  }
+  body
+}
