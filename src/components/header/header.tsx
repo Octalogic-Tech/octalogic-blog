@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 
 import PillButton from "@/components/pill-button/pill-button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import vars from "@/config/vars";
 
@@ -62,29 +63,35 @@ function Header() {
   };
 
   return (
-    <div className={"flex"}>
-      <nav
-        className={`relative flex flex-col w-full box-border flex-shrink-0 text-white bg-transparent justify-center h-[3.25rem] sm:h-[7.25rem] sm:py-[0] sm:px-[2.4rem]`}
-      >
-        <div
-          className={
-            "relative flex items-center pl-4 pr-4 min-h-[2.875rem] sm:min-h-[4rem] sm:pl-6 sm:pr-6"
-          }
+    <Sheet>
+      <div className={"flex"}>
+        <nav
+          className={`relative flex flex-col w-full box-border flex-shrink-0 text-white bg-transparent justify-center h-[7.25rem] sm:py-[0] sm:px-[2.4rem]`}
         >
-          <div className={"hidden sm:block sm:flex-grow sm:items-center"}>
-            <NextLink href={"/"} className={"flex"}>
-              <Image
-                src="/images/logos/octalogic.svg"
-                alt="Octalogic logo"
-                width={60}
-                height={60}
-              />
-            </NextLink>
+          <div className={"relative flex items-center pl-8 pr-8 min-h-[4rem] sm:pl-6 sm:pr-6"}>
+            <div className={"block flex-grow items-center"}>
+              <NextLink href={"/"} className={"flex"}>
+                <Image
+                  src="/images/logos/octalogic.svg"
+                  alt="Octalogic logo"
+                  width={60}
+                  height={60}
+                />
+              </NextLink>
+            </div>
+            <div className={"hidden sm:flex sm:flex-row sm:items-center"}>{navLinks(navItems)}</div>
+            <div className="block sm:hidden">
+              <SheetTrigger>
+                <Image src="/images/icons/menu.svg" alt="menu icon" width={50} height={50} />
+              </SheetTrigger>
+            </div>
           </div>
-          <div className={"hidden sm:flex sm:flex-row sm:items-center"}>{navLinks(navItems)}</div>
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
+      <SheetContent className="flex flex-col justify-center items-end gap-y-6">
+        {navLinks(navItems)}
+      </SheetContent>
+    </Sheet>
   );
 }
 

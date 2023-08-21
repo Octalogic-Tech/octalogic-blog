@@ -67,17 +67,17 @@ export function Footer() {
         </NextLink>
       </div>
       <div className={"w-full flex flex-col items-center my-12"}>
-        <div className={"w-full flex justify-center mb-[0.187rem]"}>
+        <div className={"w-full flex justify-center mb-[0.187rem] gap-x-4 items-center"}>
           <FooterLink name={"Contact"} href={"contact"} />
           <FooterLink name={"Home"} href={"/"} />
           <FooterLink name={"Remote Resources"} href={"remote-resources"} />
         </div>
-        <div className={"w-full flex justify-center mb-[0.187rem]"}>
+        <div className={"w-full flex justify-center mb-[0.187rem] gap-x-4 items-center"}>
           <FooterLink name={"Privacy"} href={"privacy-policy"} />
           <FooterLink name={"About"} href={"about"} />
           <FooterLink name={"Web Dev"} href={"web-development"} />
         </div>
-        <div className={"w-full flex justify-center mb-[0.187rem]"}>
+        <div className={"w-full flex justify-center mb-[0.187rem] gap-x-4 items-center"}>
           <FooterLink name={"Terms of Service"} href={"terms-of-service"} />
           <FooterLink name={"Services"} href={"services"} />
           <FooterLink name={"Mobile Dev"} href={"mobile-development"} />
