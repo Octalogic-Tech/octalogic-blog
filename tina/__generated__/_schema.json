@@ -1,1 +1,132 @@
-{"version":{"fullVersion":"1.4.7","major":"1","minor":"4","patch":"7"},"meta":{"flags":["experimentalData"]},"collections":[{"label":"Blog Posts","name":"post","path":"content/post","ui":{},"fields":[{"name":"coverImage","type":"image","label":"Cover Image","required":false,"namespace":["post","coverImage"]},{"type":"string","label":"Title","name":"title","isTitle":true,"required":true,"namespace":["post","title"]},{"type":"string","label":"Summary","name":"summary","required":true,"ui":{"component":"textarea"},"namespace":["post","summary"]},{"label":"Is Hero Post","name":"isHeroPost","type":"boolean","ui":{"component":"toggle"},"namespace":["post","isHeroPost"]},{"label":"Categories","name":"categories","type":"string","required":true,"options":[{"value":"web-development","label":"Web Development"},{"value":"mobile-development","label":"Mobile Development"},{"value":"devops","label":"Devops"},{"value":"sysops","label":"Sysops"}],"namespace":["post","categories"]},{"name":"postDate","label":"Date","type":"datetime","required":true,"namespace":["post","postDate"]},{"label":"Tags","name":"tags","type":"string","list":true,"required":false,"namespace":["post","tags"]},{"label":"SEO","name":"seo","type":"object","required":false,"fields":[{"type":"string","label":"Title","name":"title","required":true,"ui":{},"namespace":["post","seo","title"]},{"type":"string","label":"Description","name":"description","required":true,"ui":{"component":"textarea"},"namespace":["post","seo","description"]},{"name":"image","type":"image","label":"SEO Image","description":"A 300x300 image that will be displayed whenever a link is posted","required":false,"namespace":["post","seo","image"]},{"name":"imageWidth","type":"number","label":"Image Width","required":false,"ui":{"component":"number"},"namespace":["post","seo","imageWidth"]},{"name":"imageHeight","type":"number","label":"Image Height","required":false,"ui":{"component":"number"},"namespace":["post","seo","imageHeight"]}],"namespace":["post","seo"]},{"name":"body","label":"Content","type":"rich-text","isBody":true,"required":true,"namespace":["post","body"],"parser":{"type":"markdown"}}],"namespace":["post"]}],"config":{"media":{"tina":{"publicFolder":"public","mediaRoot":"uploads"}}}}
+{
+  "version": { "fullVersion": "1.4.7", "major": "1", "minor": "4", "patch": "7" },
+  "meta": { "flags": ["experimentalData"] },
+  "collections": [
+    {
+      "label": "Blog Posts",
+      "name": "post",
+      "path": "content/post",
+      "ui": {},
+      "fields": [
+        {
+          "name": "coverImage",
+          "type": "image",
+          "label": "Cover Image",
+          "required": false,
+          "namespace": ["post", "coverImage"]
+        },
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "isTitle": true,
+          "required": true,
+          "namespace": ["post", "title"]
+        },
+        {
+          "type": "string",
+          "label": "Summary",
+          "name": "summary",
+          "required": true,
+          "ui": { "component": "textarea" },
+          "namespace": ["post", "summary"]
+        },
+        {
+          "label": "Is Hero Post",
+          "name": "isHeroPost",
+          "type": "boolean",
+          "ui": { "component": "toggle" },
+          "namespace": ["post", "isHeroPost"]
+        },
+        {
+          "label": "Categories",
+          "name": "categories",
+          "type": "string",
+          "required": true,
+          "options": [
+            { "value": "web-development", "label": "Web Development" },
+            { "value": "mobile-development", "label": "Mobile Development" },
+            { "value": "devops", "label": "Devops" },
+            { "value": "sysops", "label": "Sysops" }
+          ],
+          "namespace": ["post", "categories"]
+        },
+        {
+          "name": "postDate",
+          "label": "Date",
+          "type": "datetime",
+          "required": true,
+          "namespace": ["post", "postDate"]
+        },
+        {
+          "label": "Tags",
+          "name": "tags",
+          "type": "string",
+          "list": true,
+          "required": false,
+          "namespace": ["post", "tags"]
+        },
+        {
+          "label": "SEO",
+          "name": "seo",
+          "type": "object",
+          "required": false,
+          "fields": [
+            {
+              "type": "string",
+              "label": "Title",
+              "name": "title",
+              "required": true,
+              "ui": {},
+              "namespace": ["post", "seo", "title"]
+            },
+            {
+              "type": "string",
+              "label": "Description",
+              "name": "description",
+              "required": true,
+              "ui": { "component": "textarea" },
+              "namespace": ["post", "seo", "description"]
+            },
+            {
+              "name": "image",
+              "type": "image",
+              "label": "SEO Image",
+              "description": "A 300x300 image that will be displayed whenever a link is posted",
+              "required": false,
+              "namespace": ["post", "seo", "image"]
+            },
+            {
+              "name": "imageWidth",
+              "type": "number",
+              "label": "Image Width",
+              "required": false,
+              "ui": { "component": "number" },
+              "namespace": ["post", "seo", "imageWidth"]
+            },
+            {
+              "name": "imageHeight",
+              "type": "number",
+              "label": "Image Height",
+              "required": false,
+              "ui": { "component": "number" },
+              "namespace": ["post", "seo", "imageHeight"]
+            }
+          ],
+          "namespace": ["post", "seo"]
+        },
+        {
+          "name": "body",
+          "label": "Content",
+          "type": "rich-text",
+          "isBody": true,
+          "required": true,
+          "namespace": ["post", "body"],
+          "parser": { "type": "markdown" }
+        }
+      ],
+      "namespace": ["post"]
+    }
+  ],
+  "config": { "media": { "tina": { "publicFolder": "public", "mediaRoot": "uploads" } } }
+}
