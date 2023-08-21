@@ -152,4 +152,3 @@ src/docs
 package.json
 package-lock.json
 content/*
-tina/*.json

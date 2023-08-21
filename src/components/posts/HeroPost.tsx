@@ -2,20 +2,20 @@ import * as React from "react";
 
 import Link from "@/components/link/link";
 
-import { Post } from "@/interfaces/IPostProps";
+import IPost from "@/interfaces/IPost";
 
-const BlogPost = ({ post }: { post?: Post }) => (
+const BlogPost = ({ post }: { post: IPost }) => (
   <div className="flex flex-col justify-between flex-1 grow sm:grow-[2]">
-    <Link href={`posts/${post?._sys?.filename?.replaceAll("/posts", "")}`}>
+    <Link href={post.url}>
       <div>
         <div>
-          <h5 className="text-[#999999]">{post?.categories}</h5>
+          <h5 className="text-[#999999]">{post.data.category.slug}</h5>
         </div>
         <div className="mt-[0.6rem]">
-          <h1 className="text-[4rem]">{post?.title}</h1>
+          <h1 className="text-[4rem]">{post.data.title}</h1>
         </div>
         <div className="mt-8">
-          <p className="text-[1.6rem] line-clamp-6">{post?.summary}</p>
+          <p className="text-[1.6rem] line-clamp-6">{post.data.post_summary}</p>
         </div>
       </div>
 

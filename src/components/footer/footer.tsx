@@ -13,7 +13,7 @@ const FooterLink = ({ name, href }: { name: string; href: string }) => {
   return (
     <div
       className={
-        "normal-case text-center p-1 flex-[0_0_33.333333%] max-w-[33.333333%] sm:flex-[0_0_16.666667%] sm: max-w-[16.666667%]"
+        "normal-case text-center p-1 flex-[0_0_33.333333%] sm:flex-[0_0_16.666667%] sm: max-w-[16.666667%]"
       }
     >
       <Link
