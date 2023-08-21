@@ -121,13 +121,13 @@ export default async function Post({ params }: { params: { slug: string } }) {
         />
       </>
 
-      <div className="flex justify-center">
-        <div className="mt-12 max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg px-12 md:mt-16 md:px-16 lg:px-20">
-          <p>{`Published ${format(postDate, "MMM dd, yyyy")}`}</p>
+      <div className="grid place-items-center">
+        <div className="mt-12 max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg px-12 md:mt-16 md:px-16 lg:px-20 break-words">
+          <p className="break-words">{`Published ${format(postDate, "MMM dd, yyyy")}`}</p>
 
           {blog.cover_image && <PrismicNextImage field={blog.cover_image} />}
 
-          <h1 className="py-10">{blog.title}</h1>
+          <h1 className="py-10 break-words">{blog.title}</h1>
           <PrismicRichText field={blog.content as any} />
         </div>
       </div>

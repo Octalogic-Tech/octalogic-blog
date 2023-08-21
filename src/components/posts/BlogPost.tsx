@@ -9,13 +9,13 @@ const BlogPostCard = ({ post }: { post: IPost }) => (
     <Link prefetch={false} href={post.url}>
       <div>
         <div>
-          <p className="text-[#999999]">{post.data.category.slug}</p>
+          <p className="text-[#999999] break-words">{post.data.category.slug}</p>
         </div>
         <div className="mt-[0.6rem]">
-          <h2>{post.data.title}</h2>
+          <h2 className="break-words">{post.data.title}</h2>
         </div>
         <div className="mt-8">
-          <p className="line-clamp-6">{post.data.post_summary}</p>
+          <p className="line-clamp-6 break-words">{post.data.post_summary}</p>
         </div>
       </div>
 
@@ -24,7 +24,7 @@ const BlogPostCard = ({ post }: { post: IPost }) => (
           <div className="flex items-center gap-2">
             {React.Children.toArray(
               post?.tags.map((tag: string) => (
-                <p className="bg-[#DADBDD] text-[#656B78] py-[0.625rem] px-[1.875rem] rounded subtitle1">
+                <p className="bg-[#DADBDD] text-[#656B78] py-[0.625rem] px-[1.875rem] rounded subtitle1 break-words">
                   {tag}
                 </p>
               )),
@@ -32,7 +32,7 @@ const BlogPostCard = ({ post }: { post: IPost }) => (
           </div>
         </div>
         <div className="w-full sm:w-3/12 flex justify-start sm:justify-end items-start sm:items-end">
-          <p className="text-[#6B7280] subtitle1">Read More</p>
+          <p className="text-[#6B7280] subtitle1 break-words">Read More</p>
         </div>
       </div>
     </Link>
