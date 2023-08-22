@@ -1,0 +1,24 @@
+{
+  "id": "author",
+  "label": "Author",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "first_name": {
+        "type": "Text",
+        "config": { "label": "First Name", "placeholder": "" }
+      },
+      "last_name": {
+        "type": "Text",
+        "config": { "label": "Last Name", "placeholder": "" }
+      },
+      "avatar": {
+        "type": "Image",
+        "config": { "label": "Avatar", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}

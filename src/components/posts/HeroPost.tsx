@@ -2,20 +2,20 @@ import * as React from "react";
 
 import Link from "@/components/link/link";
 
-import { Post } from "@/interfaces/IPostProps";
+import IPost from "@/interfaces/IPost";
 
-const BlogPost = ({ post }: { post?: Post }) => (
+const BlogPost = ({ post }: { post: IPost }) => (
   <div className="flex flex-col justify-between flex-1 grow sm:grow-[2]">
-    <Link href={`posts/${post?._sys?.filename?.replaceAll("/posts", "")}`}>
+    <Link href={post?.url || ""}>
       <div>
         <div>
-          <h5 className="text-[#999999]">{post?.categories}</h5>
+          <h5 className="text-[#999999] break-words">{post?.data?.category?.slug}</h5>
         </div>
         <div className="mt-[0.6rem]">
-          <h1 className="text-[4rem]">{post?.title}</h1>
+          <h1 className="text-[4rem] break-words">{post?.data?.title}</h1>
         </div>
         <div className="mt-8">
-          <p className="text-[1.6rem] line-clamp-6">{post?.summary}</p>
+          <p className="text-[1.6rem] line-clamp-6 break-words">{post?.data?.post_summary}</p>
         </div>
       </div>
 
@@ -24,7 +24,7 @@ const BlogPost = ({ post }: { post?: Post }) => (
           <div className="flex items-center gap-2">
             {React.Children.toArray(
               post?.tags.map((tag: string) => (
-                <p className="bg-[#DADBDD] text-[#656B78] py-[0.625rem] px-[1.875rem] rounded">
+                <p className="bg-[#DADBDD] text-[#656B78] py-[0.625rem] px-[1.875rem] rounded break-words">
                   {tag}
                 </p>
               )),
@@ -32,7 +32,7 @@ const BlogPost = ({ post }: { post?: Post }) => (
           </div>
         </div>
         <div className="w-full sm:w-3/12 flex justify-start sm:justify-end items-start sm:items-end">
-          <p className="text-[#6B7280]">Read More</p>
+          <p className="text-[#6B7280] break-words">Read More</p>
         </div>
       </div>
     </Link>

@@ -13,7 +13,7 @@ const FooterLink = ({ name, href }: { name: string; href: string }) => {
   return (
     <div
       className={
-        "normal-case text-center p-1 flex-[0_0_33.333333%] max-w-[33.333333%] sm:flex-[0_0_16.666667%] sm: max-w-[16.666667%]"
+        "normal-case text-center p-1 flex-[0_0_33.333333%] sm:flex-[0_0_16.666667%] sm: max-w-[16.666667%]"
       }
     >
       <Link
@@ -67,17 +67,17 @@ export function Footer() {
         </NextLink>
       </div>
       <div className={"w-full flex flex-col items-center my-12"}>
-        <div className={"w-full flex justify-center mb-[0.187rem]"}>
+        <div className={"w-full flex justify-center mb-[0.187rem] gap-x-4 items-center"}>
           <FooterLink name={"Contact"} href={"contact"} />
           <FooterLink name={"Home"} href={"/"} />
           <FooterLink name={"Remote Resources"} href={"remote-resources"} />
         </div>
-        <div className={"w-full flex justify-center mb-[0.187rem]"}>
+        <div className={"w-full flex justify-center mb-[0.187rem] gap-x-4 items-center"}>
           <FooterLink name={"Privacy"} href={"privacy-policy"} />
           <FooterLink name={"About"} href={"about"} />
           <FooterLink name={"Web Dev"} href={"web-development"} />
         </div>
-        <div className={"w-full flex justify-center mb-[0.187rem]"}>
+        <div className={"w-full flex justify-center mb-[0.187rem] gap-x-4 items-center"}>
           <FooterLink name={"Terms of Service"} href={"terms-of-service"} />
           <FooterLink name={"Services"} href={"services"} />
           <FooterLink name={"Mobile Dev"} href={"mobile-development"} />

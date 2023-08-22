@@ -30,6 +30,19 @@
     line-height: normal;
   }
 }
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 

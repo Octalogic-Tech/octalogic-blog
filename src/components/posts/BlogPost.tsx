@@ -2,24 +2,20 @@ import * as React from "react";
 
 import Link from "@/components/link/link";
 
-import { Post } from "@/interfaces/IPostProps";
+import IPost from "@/interfaces/IPost";
 
-const BlogPostCard = ({ post }: { post?: Post }) => (
+const BlogPostCard = ({ post }: { post: IPost }) => (
   <div className="flex flex-col justify-between flex-1 grow sm:grow-[2]">
-    <Link
-      prefetch={false}
-      href={`posts/${post?._sys?.filename?.replaceAll("/posts", "")}`}
-      className="text-[#6B7280] subtitle1"
-    >
+    <Link prefetch={false} href={post?.url || ""}>
       <div>
         <div>
-          <p className="text-[#999999]">{post?.categories}</p>
+          <p className="text-[#999999] break-words">{post?.data?.category?.slug}</p>
         </div>
         <div className="mt-[0.6rem]">
-          <h3>{post?.title}</h3>
+          <h2 className="break-words">{post?.data?.title}</h2>
         </div>
         <div className="mt-8">
-          <p className="line-clamp-6">{post?.summary}</p>
+          <p className="line-clamp-6 break-words">{post?.data?.post_summary}</p>
         </div>
       </div>
 
@@ -28,7 +24,7 @@ const BlogPostCard = ({ post }: { post?: Post }) => (
           <div className="flex items-center gap-2">
             {React.Children.toArray(
               post?.tags.map((tag: string) => (
-                <p className="bg-[#DADBDD] text-[#656B78] py-[0.625rem] px-[1.875rem] rounded subtitle1">
+                <p className="bg-[#DADBDD] text-[#656B78] py-[0.625rem] px-[1.875rem] rounded subtitle1 break-words">
                   {tag}
                 </p>
               )),
@@ -36,7 +32,7 @@ const BlogPostCard = ({ post }: { post?: Post }) => (
           </div>
         </div>
         <div className="w-full sm:w-3/12 flex justify-start sm:justify-end items-start sm:items-end">
-          <p className="text-[#6B7280] subtitle1">Read More</p>
+          <p className="text-[#6B7280] subtitle1 break-words">Read More</p>
         </div>
       </div>
     </Link>
