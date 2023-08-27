@@ -6,17 +6,41 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
       "cover_image": {
         "type": "Image",
-        "config": { "label": "Cover Image", "constraint": {}, "thumbnails": [] }
+        "config": {
+          "label": "Cover Image",
+          "constraint": {},
+          "thumbnails": []
+        }
       },
-      "title": { "type": "Text", "config": { "label": "Title", "placeholder": "" } },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
       "post_summary": {
         "type": "Text",
-        "config": { "label": "Summary", "placeholder": "Article Summary" }
+        "config": {
+          "label": "Summary",
+          "placeholder": "Article Summary"
+        }
       },
-      "post_date": { "type": "Date", "config": { "label": "Post Date", "placeholder": "" } },
+      "post_date": {
+        "type": "Date",
+        "config": {
+          "label": "Post Date",
+          "placeholder": ""
+        }
+      },
       "content": {
         "type": "StructuredText",
         "config": {
@@ -28,23 +52,40 @@
       },
       "author": {
         "type": "Link",
-        "config": { "label": "Author", "select": "document", "customtypes": ["author"] }
+        "config": {
+          "label": "Author",
+          "select": "document",
+          "customtypes": ["author"]
+        }
       },
       "category": {
         "type": "Link",
-        "config": { "label": "Category", "select": "document", "customtypes": ["category"] }
+        "config": {
+          "label": "Category",
+          "select": "document",
+          "customtypes": ["category"]
+        }
       },
-      "slices": { "type": "Slices", "fieldset": "Slice Zone", "config": { "choices": {} } }
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
     },
     "SEO & Metadata": {
-      "meta_description": {
-        "config": { "label": "Meta Description", "placeholder": "A brief summary of the page" },
-        "type": "Text"
-      },
       "meta_title": {
         "config": {
           "label": "Meta Title",
           "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
         },
         "type": "Text"
       }

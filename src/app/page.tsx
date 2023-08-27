@@ -14,6 +14,12 @@ const getBlogs = async () => {
     const result: IPaginatedResult = (await client.getByType("blog", {
       pageSize: 20,
       page: 1,
+      orderings: [
+        {
+          field: "my.blog.post_date",
+          direction: "desc",
+        },
+      ],
     })) as unknown as IPaginatedResult;
 
     return {

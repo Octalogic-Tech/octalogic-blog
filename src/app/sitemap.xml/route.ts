@@ -12,6 +12,8 @@ interface IPost {
 
 export const revalidate = 3600; // revalidate at most every hour
 
+const siteUrl = `https://${vars.host}`;
+
 export async function GET() {
   let paths: IPost[] = [];
 
@@ -25,7 +27,7 @@ export async function GET() {
 
   const dynamicSitemap: ISitemapField[] = [
     {
-      loc: `${vars.host}`,
+      loc: `${siteUrl}`,
       lastmod: new Date().toISOString(),
       changefreq: "monthly",
       priority: 0.9,
@@ -34,7 +36,7 @@ export async function GET() {
 
   paths.forEach((item: IPost) => {
     const sitemapEntry = {
-      loc: `${vars.host}/posts/${item.slug}`,
+      loc: `${siteUrl}/posts/${item.slug}`,
       lastmod: item.date,
       changefreq: "monthly",
       priority: 0.7,
