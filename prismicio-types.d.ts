@@ -151,17 +151,6 @@ interface BlogDocumentData {
    */
   slices: prismic.SliceZone<BlogDocumentDataSlicesSlice>;
   /**
-   * Meta Description field in *Blog*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: blog.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
    * Meta Title field in *Blog*
    *
    * - **Field Type**: Text
@@ -171,6 +160,17 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
 }
 
 /**
@@ -223,7 +223,6 @@ export type AllDocumentTypes = AuthorDocument | BlogDocument | CategoryDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
-    // eslint-disable-next-line @typescript-eslint/prefer-function-type
     (
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig,

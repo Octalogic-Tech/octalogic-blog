@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ArticleJsonLd } from "next-seo";
 import { notFound } from "next/navigation";
 import { PrismicRichText } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import Image from "next/image";
 import { parse, format } from "date-fns";
 
 import client from "@/config/client";
@@ -31,7 +31,9 @@ const getPost = async (params: {
 }> => {
   if (!params?.slug) return notFound();
 
-  const post: IPost = (await client.getByUID("blog", params.slug)) as unknown as IPost;
+  const post: IPost = (await client.getByUID("blog", params.slug, {
+    fetchLinks: "author.first_name, author.last_name",
+  })) as unknown as IPost;
 
   return {
     props: {
@@ -103,7 +105,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const { data: blog } = post;
 
   const postUrl = `${siteUrl}/posts/${post.uid}`;
-
+  const author: string = `${blog.author.data?.first_name} ${blog.author.data?.last_name}`;
   const postDate: Date = parse(blog.post_date, "yyyy-MM-dd", new Date());
 
   return (
@@ -121,11 +123,26 @@ export default async function Post({ params }: { params: { slug: string } }) {
         />
       </>
       <div className="mx-auto mt-12 max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg px-12 md:mt-16 md:px-16 lg:px-20 break-words">
-        <p className="break-words">{`Published ${format(postDate, "MMM dd, yyyy")}`}</p>
-
-        {blog.cover_image && <PrismicNextImage field={blog.cover_image} />}
+        <div className="flex flex-col md:flex-row justify-between">
+          <p className="break-words">{`Published ${format(postDate, "MMM dd, yyyy")}`}</p>
+          <p className="mb-4 md:mb-0 break-words">Written By {author}</p>
+        </div>
 
         <h1 className="py-10 break-words">{blog.title}</h1>
+
+        {blog?.cover_image?.url && (
+          <div className="py-10">
+            <Image
+              src={blog.cover_image.url}
+              alt={blog.cover_image.alt}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="w-full h-auto"
+            />
+          </div>
+        )}
+
         <PrismicRichText field={blog.content as any} />
       </div>
     </>
