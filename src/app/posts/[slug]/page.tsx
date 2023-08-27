@@ -119,7 +119,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
           images={blog.cover_image?.url ? [blog.cover_image?.url] : []}
           datePublished={postDate.toISOString()}
           // dateModified={post.postDate}
-          authorName="Octalogic Tech"
+          authorName={author}
+          isAccessibleForFree={true}
         />
       </>
       <div className="mx-auto mt-12 max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg px-12 md:mt-16 md:px-16 lg:px-20 break-words">
