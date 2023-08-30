@@ -56,8 +56,8 @@ const BlogListPage = async () => {
         <HeroPost post={heroBlog} />
         <AboutCard />
       </div>
-
-      <div className="py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-y-[5rem] gap-x-0 lg:gap-x-[7rem]">
+      <h5 className="global-max-w mx-auto pt-24 text-center font-bold">Our Latest Blogs</h5>
+      <div className="pb-24 pt-16 global-max-w grid mx-auto grid-cols-[minmax(0,1fr)] gap-y-[5rem] gap-x-0 lg:gap-x-[5rem]">
         {React.Children.toArray(blogs.map((blog) => <BlogPost post={blog} />))}
       </div>
       {/* TODO: pagination support */}

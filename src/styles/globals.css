@@ -46,6 +46,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .global-max-w {
+    @apply max-w-[1200px];
+  }
+}
+
 .subtitle1 {
   font-size: 1.375rem;
 }
