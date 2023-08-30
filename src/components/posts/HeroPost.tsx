@@ -31,7 +31,7 @@ const BlogPost = ({ post }: { post: IPost }) => (
             </strong>
           </p>
         </div>
-        <div>
+        <div className="hidden sm:block">
           <p className="text-sm text-[#999999]">{`${calcReadTime(
             post?.data?.content as ContentType[],
           )} min read`}</p>
