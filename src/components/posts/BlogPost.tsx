@@ -39,7 +39,9 @@ const BlogPostCard = ({ post }: { post: IPost }) => {
         </div>
       </div>
       <div
-        className={`flex ${post?.data?.cover_image?.url ? "gap-x-8 lg:gap-x-4" : 0} items-start`}
+        className={`flex justify-between ${
+          post?.data?.cover_image?.url ? "gap-x-8 lg:gap-x-4" : ""
+        } items-start`}
       >
         <div className={`${post?.data?.cover_image?.url ? "w-3/5 lg:w-4/5" : "w-full"}`}>
           <div>
@@ -72,14 +74,14 @@ const BlogPostCard = ({ post }: { post: IPost }) => {
           </div>
         </div>
         {post?.data?.cover_image?.url && (
-          <div className={`w-2/5 lg:w-1/5 flex justify-end items-start`}>
+          <div className={`w-auto flex items-start`}>
             <Image
               src={post?.data?.cover_image?.url}
               alt={post?.data?.cover_image?.url}
               width="0"
               height="0"
               sizes="100vw"
-              className="w-24 h-24 sm:w-44 sm:h-44 object-fill object-center"
+              className="w-24 h-24 sm:w-44 sm:h-44 object-cover object-center"
             />
           </div>
         )}
