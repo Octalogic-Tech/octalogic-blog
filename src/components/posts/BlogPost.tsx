@@ -78,9 +78,9 @@ const BlogPostCard = ({ post }: { post: IPost }) => {
             <Image
               src={post?.data?.cover_image?.url}
               alt={post?.data?.cover_image?.url}
-              width="0"
-              height="0"
-              sizes="100vw"
+              width="150"
+              height="150"
+              // sizes="100vw"
               className="w-24 h-24 sm:w-44 sm:h-44 object-cover object-center"
             />
           </div>
