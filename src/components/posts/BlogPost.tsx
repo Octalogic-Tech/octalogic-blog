@@ -14,13 +14,17 @@ const BlogPostCard = ({ post }: { post: IPost }) => {
     <Link prefetch={false} href={post?.url || ""}>
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-x-1">
-          <Avatar>
-            <AvatarImage src={post?.data?.author?.slug} />
-            <AvatarFallback>{`${v.titleCase(v.first(post?.data?.author?.slug))}`}</AvatarFallback>
+          <Avatar className="w-8 h-8">
+            {post?.data?.author?.data?.avatar?.url && (
+              <AvatarImage src={post?.data?.author?.data?.avatar?.url} />
+            )}
+            <AvatarFallback>{`${v.titleCase(
+              v.first(post?.data?.author?.data?.first_name),
+            )}`}</AvatarFallback>
           </Avatar>
           <p className="text-[#999999] text-[0.875rem] break-words">
-            <span>{`${v.titleCase(post?.data?.author?.slug)} ${v.titleCase(
-              post?.data?.author?.uid,
+            <span>{`${v.titleCase(post?.data?.author?.data?.first_name)} ${v.titleCase(
+              post?.data?.author?.data?.last_name,
             )}`}</span>
             &nbsp;
             <span>{`in`}</span>&nbsp;

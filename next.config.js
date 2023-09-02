@@ -18,7 +18,7 @@ const commonCspDirectives = [
   "media-src 'self'",
   "worker-src 'self' blob:",
   "style-src 'self' www.googletagmanager.com tagmanager.google.com checkout.stripe.com fonts.googleapis.com tagmanager.google.com https://optimize.google.com 'unsafe-inline'",
-  `frame-src 'self' https://www.google.com https://www.youtube.com vars.hotjar.com www.googletagmanager.com https://optimize.google.com *.stripe.com *.stripe.network maps.google.com maps.googleapis.com maps.google.com *.facebook.com connect.facebook.net *.snapchat.com challenges.cloudflare.com`,
+  `frame-src 'self' octalogicblog.prismic.io https://www.google.com https://www.youtube.com vars.hotjar.com www.googletagmanager.com https://optimize.google.com *.stripe.com *.stripe.network maps.google.com maps.googleapis.com maps.google.com *.facebook.com connect.facebook.net *.snapchat.com challenges.cloudflare.com`,
   `connect-src 'self' *.hotjar.com wss://*.hotjar.com *.hotjar.io www.googletagmanager.com *.googleapis.com *.stripe.com maps.googleapis.com maps.google.com fonts.googleapis.com fonts.gstatic.com https://google-analytics.com https://ssl.google-analytics.com https://www.google-analytics.com stats.g.doubleclick.net ampcid.google.com analytics.google.com *.facebook.com connect.facebook.net https://tr.snapchat.com challenges.cloudflare.com cloudflareinsights.com images.prismic.io ${
     !isProduction ? "localhost:* ws://localhost:*" : ""
   } vitals.vercel-insights.com about: data:`,

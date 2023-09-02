@@ -14,6 +14,7 @@ const getBlogs = async () => {
     const result: IPaginatedResult = (await client.getByType("blog", {
       pageSize: 20,
       page: 1,
+      fetchLinks: "author.first_name, author.last_name, author.avatar",
       orderings: [
         {
           field: "my.blog.post_date",

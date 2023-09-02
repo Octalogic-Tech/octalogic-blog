@@ -60,5 +60,6 @@ export interface Author extends RelationItem {
   data?: {
     first_name: string;
     last_name: string;
+    avatar: CoverImage | null;
   };
 }
