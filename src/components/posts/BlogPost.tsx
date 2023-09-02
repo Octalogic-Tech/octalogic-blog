@@ -16,7 +16,10 @@ const BlogPostCard = ({ post }: { post: IPost }) => {
         <div className="flex items-center gap-x-1">
           <Avatar className="w-8 h-8">
             {post?.data?.author?.data?.avatar?.url && (
-              <AvatarImage src={post?.data?.author?.data?.avatar?.url} />
+              <AvatarImage
+                src={post?.data?.author?.data?.avatar?.url}
+                alt={`${post?.data?.author?.data?.first_name} ${post?.data?.author?.data?.last_name}`}
+              />
             )}
             <AvatarFallback>{`${v.titleCase(
               v.first(post?.data?.author?.data?.first_name),
