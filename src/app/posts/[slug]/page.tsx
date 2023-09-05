@@ -26,20 +26,28 @@ const getPost = async (params: {
   slug: string;
 }): Promise<{
   props: {
-    post: IPost;
+    post: IPost | null;
   };
 }> => {
-  if (!params?.slug) return notFound();
+  try {
+    if (!params?.slug) return notFound();
 
-  const post: IPost = (await client.getByUID("blog", params.slug, {
-    fetchLinks: "author.first_name, author.last_name",
-  })) as unknown as IPost;
+    const post: IPost = (await client.getByUID("blog", params.slug, {
+      fetchLinks: "author.first_name, author.last_name",
+    })) as unknown as IPost;
 
-  return {
-    props: {
-      post,
-    },
-  };
+    return {
+      props: {
+        post,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        post: null,
+      },
+    };
+  }
 };
 
 export async function generateMetadata({
@@ -49,15 +57,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   if (!params?.slug) return notFound();
 
-  let post: IPost;
-
-  try {
-    post = (await client.getByUID("blog", params.slug, {
-      fetchLinks: "author.first_name, author.last_name",
-    })) as unknown as IPost;
-  } catch (error) {
-    return notFound();
-  }
+  const {
+    props: { post },
+  } = await getPost(params);
+  if (!post) return notFound();
 
   const { data: blog } = post;
 
@@ -101,6 +104,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const {
     props: { post },
   } = await getPost(params);
+  if (!post) return notFound();
 
   const { data: blog } = post;
 
