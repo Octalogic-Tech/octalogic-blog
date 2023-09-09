@@ -11,7 +11,7 @@ import IPost from "@/interfaces/IPost";
 
 const BlogPostCard = ({ post }: { post: IPost }) => {
   return (
-    <Link prefetch={false} href={post?.url || ""}>
+    <Link prefetch={true} href={post?.url || ""}>
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-x-1">
           <Avatar className="w-8 h-8">
